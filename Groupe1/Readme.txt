@@ -1,0 +1,1 @@
+Pour executer le code , ouvrir le dossier puis ouvrir index avec votre navigateur.

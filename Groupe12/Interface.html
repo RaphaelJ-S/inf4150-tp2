@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>Bootstrap Example</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="css/leCSS.css">
+   </head>
+   <body data-spy="scroll" data-target="#myScrollspy" data-offset="20">
+      <div class="container">
+         <div class="row">
+            <nav class="col-sm-3" id="myScrollspy">
+               <ul class="nav nav-pills nav-stacked">
+                  <li class="active"><a href="#section1"><i class="glyphicon glyphicon-user"></i>    Identification</a></li>
+                  <li><a href="#section2"><i class="glyphicon glyphicon-home"></i>    Habitation</a></li>
+                  <li><a href="#section3"><i class="glyphicon glyphicon-tree-conifer"></i>    Extérieur</a></li>
+                  <li><a href="#section4"><i class="glyphicon glyphicon-bed"></i>      Intérieur</a></li>
+                  <li><a href="#section5"><i class="glyphicon glyphicon-list-alt"></i>    Autres Infos</a></li>
+                  <li>
+                     <a href="#section6">
+                        <div class="col text-center">
+                           <button type="button" class="btn btn-info btn-sm" data-toggle="collapse" data-target="#texte" style="float: center">Aide</button>
+                           <div id="texte" class="collapse">
+                              Pour remplir le formulaire vous n'avez qu'à remplir les cases comme indiqué puis appuyer sur enregistrer au bas de chaque section.
+                              <br>
+                              Vous pouvez nous contacter au : email@domFicitif.com
+                           </div>
+                        </div>
+                     </a>
+                  </li>
+               </ul>
+               </li>
+               </ul>
+            </nav>
+            <div class="col-sm-9">
+              <!-- SECTION 1 -->
+               <div id="section1">
+                  <h1>Identification</h1>
+                  <form>
+                     <div class="form-row">
+                        <div class="form-group col-12 col-sm-12 ">
+                           <label for="inputAddress">Adresse</label>
+                           <input type="text" class="form-control" id="inputAddresse" placeholder="405 Rue Sainte-Catherine" required>
+                        </div>
+                     </div>
+                     <div class="form-row">
+                        <div class="form-group col-8 col-sm-6">
+                           <label for="inputVendeur">Courtier ou vendeur</label>
+                           <input type="text" class="form-control" id="inputVendeur" placeholder="Remax" required>
+                        </div>
+                        <div class="form-group col-4 col-sm-6">
+                           <label for="inputTelephone">Téléphone</label>
+                           <input type="number" class="form-control" id="inputTelephone" placeholder="(514) 123 4567" required>
+                        </div>
+                     </div>
+                     <div class="form-row">
+                        <div class="form-group col-8 col-sm-6">
+                           <label for="inputCell">Cellulaire</label>
+                           <input type="number" class="form-control" id="inputCell" placeholder="(514) 222 2222" required>
+                        </div>
+                        <div class="form-group col-4 col-sm-6">
+                           <label for="inputCourriel">Courriel</label>
+                           <input type="email" class="form-control" id="inputCourriel" placeholder="nom@domaine.ca" required>
+                        </div>
+                     </div>
+                     <div class="form-row">
+                        <div class="form-group col-8 col-sm-6">
+                           <label for="inputPrix">Prix demandé</label>
+                           <input type="number" class="form-control" id="inputPrix" placeholder="250 000" required>
+                        </div>
+                        <div class="form-group col-4 col-sm-6">
+                           <label for="inputEvaluation">Évaluation municipale</label>
+                           <input type="number" class="form-control" id="inputEvaluation" placeholder="200 000" required>
+                        </div>
+                     </div>
+                     <div class="form-row">
+                        <div class="form-group col-8 col-sm-6">
+                           <label for="inputTaxeS">Montant de la taxe scolaire</label>
+                           <input type="number" class="form-control" id="inputTaxeS" placeholder="10 000" required>
+                        </div>
+                        <div class="form-group col-4 col-sm-6">
+                           <label for="inputTaxeM">Montant de la taxe municipale</label>
+                           <input type="number" class="form-control" id="inputTaxeM" placeholder="5000" required>
+                        </div>
+                     </div>
+                     <button type="submit" class="btn btn-success btn-fill">Enregistrer</button>
+                     <button type="reset" class="btn btn-danger" style="float: right;">Effacer</button>
+                  </form>
+               </div>
+               <!-- SECTION 2 -->
+               <div id="section2">
+                  <h1>Habitation</h1>
+                  <form>
+                     <div class="form-row">
+                        <div class="form-group col-sm-4">Construction
+                        </div>
+                        <div class="checkbox-inline">
+                           <input class="form-check-input" type="radio" id="r1" name="nom" required>
+                           <label class="form-check-label" for="radioCheck">
+                           Existante
+                           </label>
+                        </div>
+                        <div class="checkbox-inline">
+                           <input class="form-check-input" type="radio" id="r2" name="nom" required>
+                           <label class="form-check-label" for="radioCheck2">
+                           Neuve
+                           </label>
+                        </div>
+                        <div class="form-group col-sm-8"></div>
+                     </div>
+                     <div class="form-group col-12 col-sm-12">
+                        <label for="exampleFormControlSelect2">Type d'habitation</label>
+                        <select multiple class="form-control" id="typeHab" required>
+                           <option>Maison individuelle</option>
+                           <option>Duplex</option>
+                           <option>Tour d'habitation</option>
+                           <option>Maison jumelée</option>
+                           <option>Triplex</option>
+                           <option>Plain-pied (bungalow)</option>
+                           <option>Maison en rangée</option>
+                           <option>Petit immeuble</option>
+                           <option>Copropriété</option>
+                        </select>
+                     </div>
+                     <div class="form-group col-12 col-sm-12 panel panel-default">
+                        <div class="form-row">
+                           <div class="form-group col-sm-4">Proprieté à revenu
+                           </div>
+                           <div class="radio-inline">
+                              <input class="form-check-input" type="radio" id="check1" name="nom2" required>
+                              <label class="form-check-label" for="radioCheck">
+                              Non
+                              </label>
+                           </div>
+                           <div class="radio-inline">
+                              <input class="form-check-input" type="radio" id="check2" name="nom2" required>
+                              <label class="form-check-label" for="radioCheck2">
+                              Oui
+                              </label>
+                           </div>
+                           <div class="form-group col-sm-8"></div>
+                        </div>
+                        <div class="form-row">
+                           <div class="form-group col-12 col-sm-12 ">
+                              <label for="revenuM">Revenu mensuel</label>
+                              <input type="number" class="form-control" id="revenuM" placeholder="1000" required>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="form-row">
+                        <div class="form-group col-12 col-sm-12 ">
+                           <label for="age">Âge de l'immeuble</label>
+                           <input type="number" class="form-control" id="age" placeholder="10 ans" required>
+                        </div>
+                     </div>
+                     <div class="form-row">
+                        <div class="form-group col-sm-4">Quartier
+                        </div>
+                        <div class="radio-inline">
+                           <input class="form-check-input" type="radio" id="check" name="nom3" required>
+                           <label class="form-check-label" for="radioCheck4">
+                           Résidentiel
+                           </label>
+                        </div>
+                        <div class="radio-inline">
+                           <input class="form-check-input" type="radio" id="check2" name="nom3" required>
+                           <label class="form-check-label" for="radioCheck5">
+                           Commercial ou industriel
+                           </label>
+                        </div>
+                        <div class="radio-inline">
+                           <input class="form-check-input" type="radio" id="check2" name="nom3" required>
+                           <label class="form-check-label" for="radioCheck6">
+                           Rural
+                           </label>
+                        </div>
+                        <div class="form-group col-sm-8"></div>
+                     </div>
+                     <div class="form-row">
+                        <div class="form-group col-sm-4">Bruit ambiant (Autoroute, voie ferrée, aéroport, industries, etc.)
+                        </div>
+                        <div class="radio-inline">
+                           <input class="form-check-input" type="radio" id="check7" name="nom4" required>
+                           <label class="form-check-label" for="radioCheck7">
+                           Non
+                           </label>
+                        </div>
+                        <div class="radio-inline">
+                           <input class="form-check-input" type="radio" id="check8" name="nom4" required>
+                           <label class="form-check-label" for="radioCheck8">
+                           Acceptable
+                           </label>
+                        </div>
+                        <div class="radio-inline">
+                           <input class="form-check-input" type="radio" id="check9" name="nom4" required>
+                           <label class="form-check-label" for="radioCheck9">
+                           Irritant
+                           </label>
+                        </div>
+                        <div class="form-group col-sm-8"></div>
+                     </div>
+                     <div class="form-row">
+                        <div class="form-group col-sm-12"></div>
+                     </div>
+                     <div class="form-row">
+                        <div class="form-group col-sm-4">Égout
+                        </div>
+                        <div class="radio-inline">
+                           <input class="form-check-input" type="radio" id="check" name="nom5" required>
+                           <label class="form-check-label" for="radioCheck">
+                           Municipal
+                           </label>
+                        </div>
+                        <div class="radio-inline">
+                           <input class="form-check-input" type="radio" id="check2" name="nom5" required>
+                           <label class="form-check-label" for="radioCheck2">
+                           Fosse septique
+                           </label>
+                        </div>
+                        <div class="form-group col-sm-8"></div>
+                     </div>
+                     <div class="form-row">
+                        <div class="form-group col-4 col-sm-4">Eau
+                        </div>
+                        <div class="radio-inline">
+                           <input class="form-check-input" type="radio" id="check" name="nom6" required>
+                           <label class="form-check-label" for="radioCheck">
+                           Municipalité
+                           </label>
+                        </div>
+                        <div class="radio-inline">
+                           <input class="form-check-input" type="radio" id="check2" name="nom6" required>
+                           <label class="form-check-label" for="radioCheck2">
+                           Puits
+                           </label>
+                        </div>
+                        <div class="form-group col-sm-8"></div>
+                     </div>
+                     <button type="submit" class="btn btn-success btn-fill">Enregistrer</button>
+                     <button type="reset" class="btn btn-danger" style="float: right;">Effacer</button>
+                  </form>
+               </div>
+               <!-- SECTION 3 -->
+               <div id="section3">
+                  <h1>Extérieur</h1>
+                  <form>
+                     <div class="form-row">
+                        <div class="form-group col-sm-4">Fondations
+                        </div>
+                        <div class="radio-inline">
+                           <input class="form-check-input" type="radio" id="check" name="nom7" required>
+                           <label class="form-check-label" for="radioCheck">
+                           Béton
+                           </label>
+                        </div>
+                        <div class="radio-inline">
+                           <input class="form-check-input" type="radio" id="check2" name="nom7" required>
+                           <label class="form-check-label" for="radioCheck2">
+                           Blocs de béton
+                           </label>
+                        </div>
+                        <div class="radio-inline">
+                           <input class="form-check-input" type="radio" id="check2" name="nom7" required>
+                           <label class="form-check-label" for="radioCheck2">
+                           Bois traité
+                           </label>
+                        </div>
+                        <div class="form-group col-sm-8"></div>
+                     </div>
+                     <div class="form-group col-12 col-sm-12 panel panel-default">
+                        <label for="exampleFormControlSelect2">Revêtement extérieur</label>
+                        <select multiple class="form-control" id="typeHab" required>
+                           <option>Bois</option>
+                           <option>Aluminium</option>
+                           <option>Brique</option>
+                           <option>Fibrociment</option>
+                           <option>Vinyle</option>
+                           <option>Pierre</option>
+                           <option>Autre</option>
+                        </select>
+                        <div class="input-group-text "> Autre
+                           <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                        </div>
+                        <input type="text" class="form-control" aria-label="Text input with checkbox">
+                        <div class="form-row">
+                           <div class="form-group col-sm-12"></div>
+                        </div>
+                     </div>
+                     <div class="form-group col-12 col-sm-12 panel panel-default">
+                        <label for="exampleFormControlSelect2">Fenêtres: vitrage</label>
+                        <select multiple class="form-control" id="typeHab" required>
+                           <option>Simple</option>
+                           <option>Faible émissivité</option>
+                           <option>Double</option>
+                           <option>Triple</option>
+                           <option>Vinyle/ PVC</option>
+                           <option>Aluminium</option>
+                        </select>
+                        <div class="form-row">
+                           <div class="form-group col-sm-4">Fenêtres: construction
+                           </div>
+                           <div class="radio-inline">
+                              <input class="form-check-input" type="radio" id="check" name="nom8" required>
+                              <label class="form-check-label" for="radioCheck">
+                              Bois
+                              </label>
+                           </div>
+                           <div class="radio-inline">
+                              <input class="form-check-input" type="radio" id="check2" name="nom8" required>
+                              <label class="form-check-label" for="radioCheck2">
+                              Vinyle/ PVC
+                              </label>
+                           </div>
+                           <div class="radio-inline">
+                              <input class="form-check-input" type="radio" id="check2" name="nom8" required>
+                              <label class="form-check-label" for="radioCheck2">
+                              Aluminium
+                              </label>
+                           </div>
+                           <div class="form-group col-sm-8"></div>
+                        </div>
+                     </div>
+                     <div class="form-row">
+                        <label for="inputAge" class="col-3 col-sm-3">Âge de la toiture</label>
+                        <div class="col-9 col-sm-9">
+                           <input type="number" class="form-control" id="inputAge" placeholder="10 ans" required>
+                        </div>
+                     </div>
+                     <div class="form-row">
+                        <div class="form-group col-sm-12"></div>
+                     </div>
+                     <div class="form-group col-12 col-sm-12 panel panel-default">
+                        <div class="form-row ">
+                           <div class="form-group col-sm-4 ">Taille du terrain
+                           </div>
+                           <div class="radio-inline">
+                              <input class="form-check-input" type="radio" id="check" name="nom9" required>
+                              <label class="form-check-label" for="radioCheck">
+                              Petit
+                              </label>
+                           </div>
+                           <div class="radio-inline">
+                              <input class="form-check-input" type="radio" id="check2" name="nom9" required>
+                              <label class="form-check-label" for="radioCheck2">
+                              Moyen
+                              </label>
+                           </div>
+                           <div class="radio-inline">
+                              <input class="form-check-input" type="radio" id="check2" name="nom9" required>
+                              <label class="form-check-label" for="radioCheck2">
+                              Grand
+                              </label>
+                           </div>
+                        </div>
+                        <div class="form-group col-sm-8 panel panel-default"></div>
+                        <div class="form-row">
+                           <label for="inputDim" class="col-3 col-sm-3">Dimensions</label>
+                           <div class="col-9 col-sm-9">
+                              <input type="number" class="form-control" id="inputDim" placeholder="10000" required>
+                           </div>
+                        </div>
+                        <div class="form-row">
+                           <div class="form-group col-sm-12"></div>
+                        </div>
+                     </div>
+                     <div class="form-row">
+                        <div class="form-group col-sm-3">Aménagement du terrain
+                        </div>
+                        <div class="checkbox-inline">
+                           <input class="form-check-input" type="checkbox" id="gridCheck" >
+                           <label class="form-check-label" for="gridCheck">
+                           Pelouse
+                           </label>
+                        </div>
+                        <div class="checkbox-inline">
+                           <input class="form-check-input" type="checkbox" id="gridCheck2" >
+                           <label class="form-check-label" for="gridCheck2">
+                           Terrasse (patio) non couverte
+                           </label>
+                        </div>
+                        <div class="checkbox-inline">
+                           <input class="form-check-input" type="checkbox" id="gridCheck" >
+                           <label class="form-check-label" for="gridCheck">
+                           Clôture
+                           </label>
+                        </div>
+                        <div class="checkbox-inline">
+                           <input class="form-check-input" type="checkbox" id="gridCheck2" >
+                           <label class="form-check-label" for="gridCheck2">
+                           Boisé
+                           </label>
+                        </div>
+                        <div class="checkbox-inline">
+                           <input class="form-check-input" type="checkbox" id="gridCheck" >
+                           <label class="form-check-label" for="gridCheck">
+                           Gloriette (Gazebo)
+                           </label>
+                        </div>
+                        <div class="checkbox-inline">
+                           <input class="form-check-input" type="checkbox" id="gridCheck2" >
+                           <label class="form-check-label" for="gridCheck2">
+                           Haie
+                           </label>
+                        </div>
+                        <div class="checkbox-inline">
+                           <input class="form-check-input" type="checkbox" id="gridCheck" >
+                           <label class="form-check-label" for="gridCheck">
+                           Terrasse (patio) couverte
+                           </label>
+                        </div>
+                        <div class="checkbox-inline">
+                           <input class="form-check-input" type="checkbox" id="gridCheck2" >
+                           <label class="form-check-label" for="gridCheck2">
+                           Cabanon
+                           </label>
+                        </div>
+                        <div class="form-group col-sm-9"></div>
+                     </div>
+                     <div class="form-row">
+                        <div class="form-group col-sm-12"></div>
+                     </div>
+                     <div class="form-row">
+                        <div class="form-group col-sm-4">Piscine
+                        </div>
+                        <div class="radio-inline">
+                           <input class="form-check-input" type="radio" id="check7" name="nom11" required>
+                           <label class="form-check-label" for="radioCheck7">
+                           Non
+                           </label>
+                        </div>
+                        <div class="radio-inline">
+                           <input class="form-check-input" type="radio" id="check8" name="nom11" required>
+                           <label class="form-check-label" for="radioCheck8">
+                           De surface
+                           </label>
+                        </div>
+                        <div class="radio-inline">
+                           <input class="form-check-input" type="radio" id="check9" name="nom11" required>
+                           <label class="form-check-label" for="radioCheck9">
+                           Creusée
+                           </label>
+                        </div>
+                        <div class="radio-inline">
+                           <input class="form-check-input" type="radio" id="check9" name="nom11" required>
+                           <label class="form-check-label" for="radioCheck9">
+                           Semi-creusée
+                           </label>
+                        </div>
+                        <div class="form-group col-sm-8"></div>
+                     </div>
+                     <div class="form-row">
+                        <div class="form-group col-sm-12"></div>
+                     </div>
+                     <div class="form-row">
+                        <div class="form-group col-sm-4">Chauffe-piscine
+                        </div>
+                        <div class="radio-inline">
+                           <input class="form-check-input" type="radio" id="check7" name="nom12" required>
+                           <label class="form-check-label" for="radioCheck7">
+                           Électrique
+                           </label>
+                        </div>
+                        <div class="radio-inline">
+                           <input class="form-check-input" type="radio" id="check8" name="nom12" required>
+                           <label class="form-check-label" for="radioCheck8">
+                           Au gaz naturel
+                           </label>
+                        </div>
+                        <div class="radio-inline">
+                           <input class="form-check-input" type="radio" id="check9" name="nom12" required>
+                           <label class="form-check-label" for="radioCheck9">
+                           Aucun
+                           </label>
+                        </div>
+                        <div class="form-group col-sm-8"></div>
+                     </div>
+                     <div class="form-group col-12 col-sm-12">
+                        <label for="exampleFormControlSelect2">Stationnement</label>
+                        <select multiple class="form-control" id="typeHab" required>
+                           <option>Couvert</option>
+                           <option>1 voiture</option>
+                           <option>Non couvert</option>
+                           <option>2 voitures</option>
+                           <option>Garage</option>
+                           <option>Aucun</option>
+                        </select>
+                     </div>
+                     <div class="form-row">
+                        <div class="form-group col-sm-4">Entrée
+                        </div>
+                        <div class="radio-inline">
+                           <input class="form-check-input" type="radio" id="check7" name="nom13" required>
+                           <label class="form-check-label" for="radioCheck7">
+                           Asphalte
+                           </label>
+                        </div>
+                        <div class="radio-inline">
+                           <input class="form-check-input" type="radio" id="check8" name="nom13" required>
+                           <label class="form-check-label" for="radioCheck8">
+                           Terre
+                           </label>
+                        </div>
+                        <div class="radio-inline">
+                           <input class="form-check-input" type="radio" id="check9" name="nom13" required>
+                           <label class="form-check-label" for="radioCheck9">
+                           Pavé de béton
+                           </label>
+                        </div>
+                        <div class="radio-inline">
+                           <input class="form-check-input" type="radio" id="check9" name="nom13" required>
+                           <label class="form-check-label" for="radioCheck9">
+                           Gravier
+                           </label>
+                        </div>
+                        <div class="radio-inline">
+                           <input class="form-check-input" type="radio" id="check9" name="nom13" required>
+                           <label class="form-check-label" for="radioCheck9">
+                           Terre
+                           </label>
+                        </div>
+                        <div class="form-group col-sm-8"></div>
+                     </div>
+                     <div class="form-row">
+                        <div class="col-sm-4">
+                           Orientation/ Ensoleillement
+                        </div>
+                        <div class="col-sm-4">
+                           <div class="form-row">
+                              <div class="form-group">Intérieur
+                              </div>
+                              <div class="">
+                                 <input class="form-check-input" type="checkbox" id="gridCheck0">
+                                 <label class="form-check-label" for="gridCheck">
+                                 AM
+                                 </label>
+                              </div>
+                              <span class="input-group-text">Pièces</span>
+                              <textarea class="form-control" aria-label="With textarea"></textarea>
+                              <div class="form-group col-sm-8"></div>
+                           </div>
+                        </div>
+                        <div class="col-sm-4">
+                           <div class="form-row">
+                              <div class="form-group">Intérieur
+                              </div>
+                              <div class="">
+                                 <input class="form-check-input" type="checkbox" id="gridCheck21">
+                                 <label class="form-check-label" for="gridCheck2">
+                                 PM
+                                 </label>
+                              </div>
+                              <span class="input-group-text">Pièces</span>
+                              <textarea class="form-control" aria-label="With textarea"></textarea>
+                              <div class="form-group col-sm-8"></div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="form-row">
+                        <div class="col-sm-4">
+                        </div>
+                        <div class="col-sm-4">
+                           <div class="form-row">
+                              <div class="form-group">Extérieur devant
+                              </div>
+                              <div class="checkbox-inline">
+                                 <input class="form-check-input" type="checkbox" id="gridCheck0" >
+                                 <label class="form-check-label" for="gridCheck">
+                                 AM
+                                 </label>
+                              </div>
+                              <div class="">
+                                 <input class="form-check-input" type="checkbox" id="gridCheck21" >
+                                 <label class="form-check-label" for="gridCheck2">
+                                 PM
+                                 </label>
+                              </div>
+                              <div class="form-group col-sm-8"></div>
+                           </div>
+                        </div>
+                        <div class="col-sm-4">
+                           <div class="form-row">
+                              <div class="form-group">Extérieur derrière
+                              </div>
+                              <div class="checkbox-inline">
+                                 <input class="form-check-input" type="checkbox" id="gridCheck0" >
+                                 <label class="form-check-label" for="gridCheck">
+                                 AM
+                                 </label>
+                              </div>
+                              <div class="">
+                                 <input class="form-check-input" type="checkbox" id="gridCheck21" >
+                                 <label class="form-check-label" for="gridCheck2">
+                                 PM
+                                 </label>
+                              </div>
+                              <div class="form-group col-sm-8"></div>
+                           </div>
+                        </div>
+                     </div>
+                     <button type="submit" class="btn btn-success btn-fill">Enregistrer</button>
+                     <button type="reset" class="btn btn-danger" style="float: right;">Effacer</button>
+                  </form>
+               </div>
+               <!-- SECTION 4 -->
+               <div id="section4">
+                  <h1>Intérieur</h1>
+                  <form>
+                     <div class="form-row">
+                        <label for="inputAge" class="col-3 col-sm-3">Superficie habitable</label>
+                        <div class="col-9 col-sm-9">
+                           <input type="number" class="form-control" id="inputAge" placeholder="10000 " required>
+                        </div>
+                     </div>
+                     <div class="form-row">
+                        <div class="form-group col-sm-12"></div>
+                     </div>
+                     <div class="form-row">
+                        <div class="col-sm-3">
+                           Indice d'isolation
+                        </div>
+                        <div class="col-sm-3">
+                           <div class="form-row row-no-gutters">
+                              <label for="inputAge" class="col-sm-6">Sous-sol</label>
+                              <div class="col-sm-6" >
+                                 <input type="number" class="form-control" id="inputAge" placeholder="10 " required>
+                              </div>
+                           </div>
+                           <div class="form-row">
+                              <div class="form-group col-sm-12"></div>
+                           </div>
+                        </div>
+                        <div class="col-sm-3">
+                           <div class="form-row row-no-gutters">
+                              <label for="inputAge" class="col-sm-6">Murs</label>
+                              <div class="col-sm-6" >
+                                 <input type="number" class="form-control" id="inputAge" placeholder="10 " required>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-sm-3">
+                           <div class="form-row row-no-gutters">
+                              <label for="inputAge" class="col-sm-6">Plafonds</label>
+                              <div class="col-sm-6" >
+                                 <input type="number" class="form-control" id="inputAge" placeholder="10 " required>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="form-group col-12 col-sm-12">
+                        <label for="exampleFormControlSelect2">Chauffe-eau</label>
+                        <select multiple class="form-control" id="typeHab" required>
+                           <option>Gaz</option>
+                           <option>Électricité</option>
+                           <option>Mazoute</option>
+                           <option>Loué</option>
+                           <option>Acheté</option>
+                        </select>
+                     </div>
+                     <div class="form-group col-12 col-sm-12 panel panel-default">
+                        <label for="exampleFormControlSelect2">Système électrique</label>
+                        <select multiple class="form-control" id="typeHab" required>
+                           <option>100 ampères</option>
+                           <option>200 ampères</option>
+                           <option>Disjoncteurs</option>
+                           <option>Fusibles</option>
+                           <option>Autre</option>
+                        </select>
+                        <div class="input-group-text "> Autre
+                           <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                        </div>
+                        <input type="text" class="form-control" aria-label="Text input with checkbox">
+                        <div class="form-row">
+                           <div class="form-group col-sm-12"></div>
+                        </div>
+                     </div>
+                     <div class="form-group col-12 col-sm-12">
+                        <label for="exampleFormControlSelect2">Type de chauffage</label>
+                        <select multiple class="form-control" id="typeHab" required>
+                           <option>Gaz</option>
+                           <option>Électricité</option>
+                           <option>Mazoute</option>
+                           <option>Bois</option>
+                           <option>Granules</option>
+                        </select>
+                     </div>
+                     <div class="form-row">
+                        <div class="form-group col-sm-4">Fournaise
+                        </div>
+                        <div class="radio-inline">
+                           <input class="form-check-input" type="radio" id="check0" name="nom14" required>
+                           <label class="form-check-label" for="rCheck">
+                           Louée
+                           </label>
+                        </div>
+                        <div class="radio-inline">
+                           <input class="form-check-input" type="radio" id="check21" name="nom14" required>
+                           <label class="form-check-label" for="rCheck2">
+                           Achetée
+                           </label>
+                        </div>
+                        <div class="form-group col-sm-8"></div>
+                     </div>
+                     <div class="form-row">
+                        <div class="form-group col-sm-4">Ventilateur-récupérateur
+                           de chaleur
+                        </div>
+                        <div class="radio-inline">
+                           <input class="form-check-input" type="radio" id="Check0" name="nom14" required>
+                           <label class="form-check-label" for="rCheck">
+                           Oui
+                           </label>
+                        </div>
+                        <div class="radio-inline">
+                           <input class="form-check-input" type="radio" id="Check21" name="nom14" required>
+                           <label class="form-check-label" for="rCheck2">
+                           Non
+                           </label>
+                        </div>
+                        <div class="form-group col-sm-8"></div>
+                     </div>
+                     <div class="form-row">
+                        <div class="form-group col-sm-4">Climatisation
+                        </div>
+                        <div class="radio-inline">
+                           <input class="form-check-input" type="radio" id=" Check0" name="nom15" required>
+                           <label class="form-check-label" for="rCheck">
+                           Système central
+                           </label>
+                        </div>
+                        <div class="radio-inline">
+                           <input class="form-check-input" type="radio" id="Check21" name="nom15" required>
+                           <label class="form-check-label" for="rCheck2">
+                           Fenêtre
+                           </label>
+                        </div>
+                        <div class="radio-inline">
+                           <input class="form-check-input" type="radio" id="Check21" name="nom15" required>
+                           <label class="form-check-label" for="rCheck2">
+                           Aucunue
+                           </label>
+                        </div>
+                        <div class="form-group col-sm-8"></div>
+                     </div>
+                     <div class="form-row">
+                        <div class="form-group col-sm-4">Dispositifs de sécurité
+                        </div>
+                        <div class="checkbox-inline">
+                           <input class="form-check-input" type="checkbox" id="gridCheck0">
+                           <label class="form-check-label" for="gridCheck">
+                           Alarmes
+                           </label>
+                        </div>
+                        <div class="checkbox-inline">
+                           <input class="form-check-input" type="checkbox" id="gridCheck21">
+                           <label class="form-check-label" for="gridCheck2">
+                           Detecteurs de fumée
+                           </label>
+                        </div>
+                        <div class="checkbox-inline">
+                           <input class="form-check-input" type="checkbox" id="gridCheck21">
+                           <label class="form-check-label" for="gridCheck2">
+                           Extincteurs
+                           </label>
+                        </div>
+                        <div class="form-group col-sm-8"></div>
+                     </div>
+                     <div class="form-row">
+                        <label for="inputAge" class="col-sm-3">Nombre total de pièces</label>
+                        <div class="col-9 col-sm-9">
+                           <input type="number" class="form-control" id="inputAge" placeholder="5" required>
+                        </div>
+                     </div>
+                     <div class="form-row">
+                        <div class="form-group col-sm-12"></div>
+                     </div>
+                     <div class="form-row">
+                        <div class="col-sm-3">
+                           Chambres à coucher
+                        </div>
+                        <div class="col-sm-4">
+                           <div class="form-row row-no-gutters">
+                              <label for="inputAge" class="col-sm-8">Rez-de-chaussée</label>
+                              <div class="col-sm-4" >
+                                 <input type="number" class="form-control" id="inputAge" placeholder="1 " required>
+                              </div>
+                           </div>
+                           <div class="form-row">
+                              <div class="form-group col-sm-12"></div>
+                           </div>
+                        </div>
+                        <div class="col-sm-2">
+                           <div class="form-row row-no-gutters">
+                              <label for="inputAge" class="col-sm-6">Étage</label>
+                              <div class="col-sm-6" >
+                                 <input type="number" class="form-control" id="inputAge" placeholder="1 " required>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-sm-3">
+                           <div class="form-row row-no-gutters">
+                              <label for="inputAge" class="col-sm-6">Sous-sol</label>
+                              <div class="col-sm-6" >
+                                 <input type="number" class="form-control" id="inputAge" placeholder="1 " required>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="form-row">
+                        <div class="form-group col-sm-12"></div>
+                     </div>
+                     <div class="form-row">
+                        <div class="form-group col-sm-6">Chambre à coucher principale
+                           avec salle de bain
+                        </div>
+                        <div class="checkbox-inline">
+                           <input class="form-check-input" type="checkbox" id="gridCheck0">
+                           <label class="form-check-label" for="gridCheck">
+                           Oui
+                           </label>
+                        </div>
+                        <div class="checkbox-inline">
+                           <input class="form-check-input" type="checkbox" id="gridCheck21">
+                           <label class="form-check-label" for="gridCheck2">
+                           Non
+                           </label>
+                        </div>
+                        <div class="checkbox-inline">
+                           <input class="form-check-input" type="checkbox" id="gridCheck21">
+                           <label class="form-check-label" for="gridCheck2">
+                           Douche
+                           </label>
+                        </div>
+                        <div class="checkbox-inline">
+                           <input class="form-check-input" type="checkbox" id="gridCheck21">
+                           <label class="form-check-label" for="gridCheck2">
+                           Baignoire
+                           </label>
+                        </div>
+                        <div class="form-group col-sm-6"></div>
+                     </div>
+                     <div class="form-row ">
+                        <div class="col-sm-2">
+                           Salles d'eau
+                        </div>
+                        <div class="col-sm-3">
+                           <div class="form-row row-no-gutters">
+                              <label for="inputAge" class="col-sm-8">Salle de toilette
+                              (toilette + lavabo)</label>
+                              <div class="col-sm-4" >
+                                 <input type="number" class="form-control" id="inputAge" placeholder="1 " required>
+                              </div>
+                           </div>
+                           <div class="form-row">
+                              <div class="form-group col-sm-12"></div>
+                           </div>
+                        </div>
+                        <div class="col-sm-4">
+                           <div class="form-row row-no-gutters">
+                              <label for="inputAge" class="col-sm-8">Salle de bains
+                              (toilette + baignoire ou douche) </label>
+                              <div class="col-sm-4" >
+                                 <input type="number" class="form-control" id="inputAge" placeholder="1 " required>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-sm-3">
+                           <div class="form-row">
+                              <div class="form-group col-sm-4">Lavage
+                              </div>
+                              <div class="radio-inline">
+                                 <input class="form-check-input" type="radio" id="Check0" name="nom16" required>
+                                 <label class="form-check-label" for="rCheck">
+                                 Indépendante
+                                 </label>
+                              </div>
+                              <div class="radio-inline">
+                                 <input class="form-check-input" type="radio" id="Check21" name="nom16" required>
+                                 <label class="form-check-label" for="rCheck2">
+                                 Jumelée à salle de toilette
+                                 </label>
+                              </div>
+                              <div class="form-group col-sm-8"></div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="form-row">
+                        <div class="form-group col-sm-4">Salle à manger
+                        </div>
+                        <div class="radio-inline">
+                           <input class="form-check-input" type="radio" id="Check0" name="nom17" required>
+                           <label class="form-check-label" for="rCheck">
+                           Séparée
+                           </label>
+                        </div>
+                        <div class="radio-inline">
+                           <input class="form-check-input" type="radio" id="Check21" name="nom17" required>
+                           <label class="form-check-label" for="rCheck2">
+                           Jumelée à la cuisine
+                           </label>
+                        </div>
+                        <div class="radio-inline">
+                           <input class="form-check-input" type="radio" id="Check21" name="nom17" required>
+                           <label class="form-check-label" for="rCheck2">
+                           Jumelée au salon
+                           </label>
+                        </div>
+                        <div class="form-group col-sm-8"></div>
+                     </div>
+                     <div class="form-row">
+                        <div class="form-group col-sm-4">Salon / séjour
+                        </div>
+                        <div class="radio-inline">
+                           <input class="form-check-input" type="radio" id="Check0" name="nom18" required>
+                           <label class="form-check-label" for="rCheck">
+                           Séparé
+                           </label>
+                        </div>
+                        <div class="radio-inline">
+                           <input class="form-check-input" type="radio" id="Check21" name="nom18" required>
+                           <label class="form-check-label" for="rCheck2">
+                           Jumelé à la cuisine
+                           </label>
+                        </div>
+                        <div class="radio-inline">
+                           <input class="form-check-input" type="radio" id="Check21" name="nom18" required>
+                           <label class="form-check-label" for="rCheck2">
+                           Jumelé à la salle à manger
+                           </label>
+                        </div>
+                        <div class="form-group col-sm-8"></div>
+                     </div>
+                     <div class="form-row">
+                        <div class="form-group col-sm-4">Foyer
+                        </div>
+                        <div class="radio-inline">
+                           <input class="form-check-input" type="radio" id="Check0" name="nom19" required>
+                           <label class="form-check-label" for="radioCheck">
+                           Bois
+                           </label>
+                        </div>
+                        <div class="radio-inline">
+                           <input class="form-check-input" type="radio" id="Check21" name="nom19" required>
+                           <label class="form-check-label" for="radioCheck2">
+                           Gaz
+                           </label>
+                        </div>
+                        <div class="radio-inline">
+                           <input class="form-check-input" type="radio" id="Check21" name="nom19" required>
+                           <label class="form-check-label" for="radioCheck2">
+                           Aucun
+                           </label>
+                        </div>
+                        <div class="form-group col-sm-8"></div>
+                     </div>
+                     <div class="form-row">
+                        <div class="form-group col-sm-4">Poêle
+                        </div>
+                        <div class="radio-inline">
+                           <input class="form-check-input" type="radio" id="Check0" name="nom20" required>
+                           <label class="form-check-label" for="rCheck">
+                           Bois
+                           </label>
+                        </div>
+                        <div class="radio-inline">
+                           <input class="form-check-input" type="radio" id="Check21" name="nom20" required>
+                           <label class="form-check-label" for="rCheck2">
+                           Granules
+                           </label>
+                        </div>
+                        <div class="radio-inline">
+                           <input class="form-check-input" type="radio" id="Check21" name="nom20" required>
+                           <label class="form-check-label" for="rCheck2">
+                           Aucun
+                           </label>
+                        </div>
+                        <div class="form-group col-sm-8"></div>
+                     </div>
+                     <div class="form-row">
+                        <div class="form-group col-sm-4">Espace de bureau
+                        </div>
+                        <div class="radio-inline">
+                           <input class="form-check-input" type="radio" id="check0" name="nom21" required>
+                           <label class="form-check-label" for="rCheck">
+                           Oui
+                           </label>
+                        </div>
+                        <div class="radio-inline">
+                           <input class="form-check-input" type="radio" id="check21" name="nom21" required>
+                           <label class="form-check-label" for="rCheck2">
+                           Non
+                           </label>
+                        </div>
+                        <div class="form-group col-sm-8"></div>
+                     </div>
+                     <div class="form-row">
+                        <div class="form-group col-sm-3">Sous-sol
+                        </div>
+                        <div class="checkbox-inline">
+                           <input class="form-check-input" type="checkbox" id="gridCheck0">
+                           <label class="form-check-label" for="gridCheck">
+                           Fini
+                           </label>
+                        </div>
+                        <div class="checkbox-inline">
+                           <input class="form-check-input" type="checkbox" id="gridCheck21">
+                           <label class="form-check-label" for="gridCheck2">
+                           Non-fini
+                           </label>
+                        </div>
+                        <div class="checkbox-inline">
+                           <input class="form-check-input" type="checkbox" id="gridCheck21">
+                           <label class="form-check-label" for="gridCheck2">
+                           Rangement
+                           </label>
+                        </div>
+                        <div class="checkbox-inline">
+                           <input class="form-check-input" type="checkbox" id="gridCheck21">
+                           <label class="form-check-label" for="gridCheck2">
+                           Salle de jeu (enfants)
+                           </label>
+                        </div>
+                        <div class="checkbox-inline">
+                           <input class="form-check-input" type="checkbox" id="gridCheck21">
+                           <label class="form-check-label" for="gridCheck2">
+                           Salle familiale
+                           </label>
+                        </div>
+                        <div class="form-group col-sm-9"></div>
+                     </div>
+                     <div class="form-row ">
+                        <div class="col-sm-3">
+                           Rangement suffisant
+                        </div>
+                        <div class="col-sm-3">
+                           <div class="form-row">
+                              <div class="form-group col-sm-7">Rez-de-chaussée
+                              </div>
+                              <div class="radio-inline">
+                                 <input class="form-check-input" type="radio" id="check0" name="nom22" required>
+                                 <label class="form-check-label" for="check">
+                                 Oui
+                                 </label>
+                              </div>
+                              <div class="radio-inline">
+                                 <input class="form-check-input" type="radio" id="check21" name="nom22" required>
+                                 <label class="form-check-label" for="check2">
+                                 Non
+                                 </label>
+                              </div>
+                              <div class="form-group col-sm-5"></div>
+                           </div>
+                        </div>
+                        <div class="col-sm-3">
+                           <div class="form-row">
+                              <div class="form-group col-sm-7">1er étage
+                              </div>
+                              <div class="radio-inline">
+                                 <input class="form-check-input" type="radio" id="check0" name="nom23" required>
+                                 <label class="form-check-label" for="check">
+                                 Oui
+                                 </label>
+                              </div>
+                              <div class="radio-inline">
+                                 <input class="form-check-input" type="radio" id="check21" name="nom23" required>
+                                 <label class="form-check-label" for="check2">
+                                 Non
+                                 </label>
+                              </div>
+                              <div class="form-group col-sm-5"></div>
+                           </div>
+                        </div>
+                        <div class="col-sm-3">
+                           <div class="form-row">
+                              <div class="form-group col-sm-7">Sous-sol
+                              </div>
+                              <div class="radio-inline">
+                                 <input class="form-check-input" type="radio" id="check0" name="nom24" required>
+                                 <label class="form-check-label" for="check">
+                                 Oui
+                                 </label>
+                              </div>
+                              <div class="radio-inline">
+                                 <input class="form-check-input" type="radio" id="check21" name="nom24" required>
+                                 <label class="form-check-label" for="check2">
+                                 Non
+                                 </label>
+                              </div>
+                              <div class="form-group col-sm-5"></div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="form-row ">
+                        <div class="col-sm-3">
+                        </div>
+                        <div class="col-sm-3">
+                           <div class="form-row">
+                              <div class="form-group col-sm-7">Cuisine
+                              </div>
+                              <div class="radio-inline">
+                                 <input class="form-check-input" type="radio" id="check0" name="nom25" required>
+                                 <label class="form-check-label" for="check">
+                                 Oui
+                                 </label>
+                              </div>
+                              <div class="radio-inline">
+                                 <input class="form-check-input" type="radio" id="check21" name="nom25" required>
+                                 <label class="form-check-label" for="check2">
+                                 Non
+                                 </label>
+                              </div>
+                              <div class="form-group col-sm-5"></div>
+                           </div>
+                        </div>
+                        <div class="col-sm-3">
+                           <div class="form-row">
+                              <div class="form-group col-sm-7">2e étage
+                              </div>
+                              <div class="radio-inline">
+                                 <input class="form-check-input" type="radio" id="check0" name="nom26" required>
+                                 <label class="form-check-label" for="check">
+                                 Oui
+                                 </label>
+                              </div>
+                              <div class="radio-inline">
+                                 <input class="form-check-input" type="radio" id="check21" name="nom26" required>
+                                 <label class="form-check-label" for="check2">
+                                 Non
+                                 </label>
+                              </div>
+                              <div class="form-group col-sm-5"></div>
+                           </div>
+                        </div>
+                        <div class="col-sm-3">
+                           <br><br>
+                        </div>
+                     </div>
+                     <div class="form-row">
+                        <div class="form-group col-sm-12"></div>
+                     </div>
+                     <button type="submit" class="btn btn-success btn-fill">Enregistrer</button>
+                     <button type="reset" class="btn btn-danger" style="float: right;">Effacer</button>
+                  </form>
+               </div>
+               <!-- SECTION 5 -->
+               <div id="section5">
+                  <h1>Autres Infos</h1>
+                  <form>
+                     <div class="form-row">
+                        <div class="col-sm-3">
+                           Proximité de (en km)
+                        </div>
+                        <div class="col-sm-3">
+                           <div class="form-row row-no-gutters">
+                              <label for="inputAge" class="col-sm-8">Travail</label>
+                              <div class="col-sm-4" >
+                                 <input type="number" class="form-control" id="inputAge" placeholder="1"  required>
+                              </div>
+                           </div>
+                           <div class="form-row">
+                              <div class="form-group col-sm-12"></div>
+                           </div>
+                        </div>
+                        <div class="col-sm-3">
+                           <div class="form-row row-no-gutters">
+                              <label for="inputAge" class="col-sm-8">Centres commerciaux</label>
+                              <div class="col-sm-4" >
+                                 <input type="number" class="form-control" id="inputAge" placeholder="1" required>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-sm-3">
+                           <div class="form-row row-no-gutters">
+                              <label for="inputAge" class="col-sm-8">Service de police</label>
+                              <div class="col-sm-4" >
+                                 <input type="number" class="form-control" id="inputAge" placeholder="1" required>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="form-row">
+                        <div class="form-group col-sm-12"></div>
+                     </div>
+                     <div class="form-row">
+                        <div class="col-sm-3">
+                           <br>
+                        </div>
+                        <div class="col-sm-3">
+                           <div class="form-row row-no-gutters">
+                              <label for="inputAge" class="col-sm-8">Travail du conjoint</label>
+                              <div class="col-sm-4" >
+                                 <input type="number" class="form-control" id="inputAge" placeholder="1" required>
+                              </div>
+                           </div>
+                           <div class="form-row">
+                              <div class="form-group col-sm-12"></div>
+                           </div>
+                        </div>
+                        <div class="col-sm-3">
+                           <div class="form-row row-no-gutters">
+                              <label for="inputAge" class="col-sm-8">Centres récréatifs</label>
+                              <div class="col-sm-4" >
+                                 <input type="number" class="form-control" id="inputAge" placeholder="1" required>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-sm-3">
+                           <div class="form-row row-no-gutters">
+                              <label for="inputAge" class="col-sm-8">Service d'incendie</label>
+                              <div class="col-sm-4" >
+                                 <input type="number" class="form-control" id="inputAge" placeholder="1" required>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="form-row">
+                        <div class="form-group col-sm-12"></div>
+                     </div>
+                     <div class="form-row">
+                        <div class="col-sm-3">
+                           <br>
+                        </div>
+                        <div class="col-sm-3">
+                           <div class="form-row row-no-gutters">
+                              <label for="inputAge" class="col-sm-8">Écoles</label>
+                              <div class="col-sm-4" >
+                                 <input type="number" class="form-control" id="inputAge" placeholder="1" required>
+                              </div>
+                           </div>
+                           <div class="form-row">
+                              <div class="form-group col-sm-12"></div>
+                           </div>
+                        </div>
+                        <div class="col-sm-3">
+                           <div class="form-row row-no-gutters">
+                              <label for="inputAge" class="col-sm-8">Lieux de culte</label>
+                              <div class="col-sm-4" >
+                                 <input type="number" class="form-control" id="inputAge" placeholder="1" required>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-sm-3">
+                           <div class="form-row row-no-gutters">
+                              <label for="inputAge" class="col-sm-8">Dentiste</label>
+                              <div class="col-sm-4" >
+                                 <input type="number" class="form-control" id="inputAge" placeholder="1" required>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="form-row">
+                        <div class="form-group col-sm-12"></div>
+                     </div>
+                     <div class="form-row">
+                        <div class="col-sm-3">
+                           <br>
+                        </div>
+                        <div class="col-sm-3">
+                           <div class="form-row row-no-gutters">
+                              <label for="inputAge" class="col-sm-8">Transport en commun</label>
+                              <div class="col-sm-4" >
+                                 <input type="number" class="form-control" id="inputAge" placeholder="1" required>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-sm-3">
+                           <div class="form-row row-no-gutters">
+                              <label for="inputAge" class="col-sm-8">Médecin </label>
+                              <div class="col-sm-4" >
+                                 <input type="number" class="form-control" id="inputAge" placeholder="1" required>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-sm-3">
+                           <div class="form-row row-no-gutters">
+                              <label for="inputAge" class="col-sm-8">Vétérinaire </label>
+                              <div class="col-sm-4" >
+                                 <input type="number" class="form-control" id="inputAge" placeholder="1" required >
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="form-row">
+                        <div class="form-group col-sm-12"></div>
+                     </div>
+                     <div class="form-row">
+                        <div class="col-sm-3">
+                           <br>
+                        </div>
+                        <div class="col-sm-3">
+                           <div class="form-row row-no-gutters">
+                              <label for="inputAge" class="col-sm-8">Épiceries</label>
+                              <div class="col-sm-4" >
+                                 <input type="number" class="form-control" id="inputAge" placeholder="1" required>
+                              </div>
+                           </div>
+                           <div class="form-row">
+                              <div class="form-group col-sm-12"></div>
+                           </div>
+                        </div>
+                        <div class="col-sm-3">
+                           <div class="form-row row-no-gutters">
+                              <label for="inputAge" class="col-sm-8">Hôpital</label>
+                              <div class="col-sm-4" >
+                                 <input type="number" class="form-control" id="inputAge" placeholder="1" required>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-sm-3">
+                           <br><br>
+                        </div>
+                     </div>
+                     <div class="form-row">
+                        <div class="form-group col-sm-12"></div>
+                     </div>
+                     <div class="form-row">
+                        <label for="inputAge" class="col-sm-3">Date d'occupation</label>
+                        <div class="col-sm-9">
+                           <input type="date" class="form-control" id="inputAge" placeholder="5" required>
+                        </div>
+                     </div>
+                     <div class="form-row">
+                        <div class="form-group col-sm-12"></div>
+                     </div>
+                     <div class="form-row">
+                        <div class="col-sm-4">
+                           Inclus dans la vente
+                        </div>
+                        <div class="col-sm-4">
+                           <div class="form-row">
+                              <div class="form-group">
+                              </div>
+                              <div class="form-row">
+                                 <div class="">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck0">
+                                    <label class="form-check-label" for="gridCheck">
+                                    Stores
+                                    </label>
+                                 </div>
+                                 <div class="">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck21">
+                                    <label class="form-check-label" for="gridCheck2">
+                                    Luminaires
+                                    </label>
+                                 </div>
+                              </div>
+                              <div class="">
+                                 <input class="form-check-input" type="checkbox" id="gridCheck21">
+                                 <label class="form-check-label" for="gridCheck2">
+                                 Autres
+                                 </label>
+                              </div>
+                              <textarea class="form-control" aria-label="With textarea"></textarea>
+                              <div class="form-group col-sm-8"></div>
+                           </div>
+                        </div>
+                        <div class="col-sm-4">
+                           <div class="form-row">
+                              <div class="form-group">
+                              </div>
+                              <div class="form-row">
+                                 <div class="">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck0">
+                                    <label class="form-check-label" for="gridCheck">
+                                    Équipement
+                                    </label>
+                                    <input type="text" class="form-control" aria-label="Text input with checkbox">
+                                 </div>
+                                 <div class="">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck0">
+                                    <label class="form-check-label" for="gridCheck">
+                                    Entretien extérieur
+                                    </label>
+                                    <input type="text" class="form-control" aria-label="Text input with checkbox">
+                                 </div>
+                              </div>
+                              <div class="">
+                                 <input class="form-check-input" type="checkbox" id="gridCheck21">
+                                 <label class="form-check-label" for="gridCheck2">
+                                 Autres
+                                 </label>
+                              </div>
+                              <textarea class="form-control" aria-label="With textarea"></textarea>
+                              <div class="form-group col-sm-8"></div>
+                           </div>
+                        </div>
+                     </div>
+                     <button class="btn btn-success btn-fill">Enregistrer</button>
+                     <button type="reset" class="btn btn-danger" style="float: right;">Effacer</button>
+                     <div class="form-row">
+                        <div class="form-group col-sm-12"></div>
+                     </div>
+                     <div class="form-row">
+                        <div class="form-group col-sm-12"></div>
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

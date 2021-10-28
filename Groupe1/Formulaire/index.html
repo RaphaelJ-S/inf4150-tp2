@@ -1,0 +1,2260 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Formulaire</title>
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="css/nunito-font.css">
+	<link rel="stylesheet" type="text/css"
+		  href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+	<!-- Main Style Css -->
+	<link rel="stylesheet" href="css/style.css" />
+
+	<style>
+		svg text {
+			display: none;
+		}
+
+		svg g:hover text {
+			display: block;
+		}
+
+		table {
+			align-items: left;
+			display: table;
+			border-collapse: collapse;
+			border: black;
+
+		}
+
+		th:nth-child(1) {
+			color: white;
+			width: 10vw;
+		}
+
+		th {
+			width: 10vw;
+			font-weight: normal;
+			vertical-align: left;
+		}
+
+		.table {
+			display: table;
+			border-collapse: collapse;
+			padding-left: 0.92vw;
+		}
+
+		.tablerow {
+			display: table-row;
+			width: auto;
+		}
+
+		.tablecell {
+			display: table-cell;
+			width: 150px;
+			/* border: 1px solid #000; */
+			vertical-align: middle;
+			text-align: left;
+			color: white;
+
+		}
+
+		.tablecell2 {
+			display: table-cell;
+			width: 200px;
+			/* border: 1px solid #000; */
+			vertical-align: middle;
+			text-align: left;
+			color: white;
+
+		}
+
+		.head {
+			width: 155px;
+		}
+
+		fieldset {
+			width: 100%;
+			border-color: white;
+			border-radius: 5px;
+			padding-left: 00.7vw;
+			align-content: left;
+			margin: auto;
+		}
+
+		legend {
+			color: white;
+			padding: 10px;
+		}
+
+		.unite {
+			margin: left -20px, impo !important;
+		;
+			color: gray !important;
+		}
+
+		/* Chrome, Safari, Edge, Opera */
+		input::-webkit-outer-spin-button,
+		input::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
+		}
+
+		/* Firefox */
+		input[type=number] {
+			-moz-appearance: textfield;
+		}
+
+		.tooltip {
+			position: relative;
+			display: inline-block;
+			border-bottom: 1px dotted black;
+		}
+
+		.tooltip .tooltiptext {
+			visibility: hidden;
+			width: 120px;
+			background-color: black;
+			color: #fff;
+			text-align: center;
+			border-radius: 6px;
+			padding: 5px 0;
+			position: absolute;
+			z-index: 1;
+			bottom: 150%;
+			left: 50%;
+			margin-left: -60px;
+		}
+
+		.tooltip .tooltiptext::after {
+			content: "";
+			position: absolute;
+			top: 100%;
+			left: 50%;
+			margin-left: -5px;
+			border-width: 5px;
+			border-style: solid;
+			border-color: black transparent transparent transparent;
+		}
+
+		.tooltip:hover .tooltiptext {
+			visibility: visible;
+		}
+	</style>
+	<script>
+
+
+
+		function changeColor(color1,color2) {
+			document.body.style.backgroundColor=color1;
+			document.getElementById("page-content").style.backgroundColor=color1;
+			document.getElementById("wizard-form").style.backgroundColor=color2;
+		}
+
+		function ecritureNoir(couleur) {
+
+			var all = document.getElementsByTagName("*");
+
+			for (var i=0, max=all.length; i < max; i++) {
+				all[i].style.color = couleur;
+			}
+
+
+
+
+		}
+
+
+
+		function checkRevenu(value) {
+			if (value == "Oui") {
+				document.getElementById("Revenumensuel").removeAttribute("disabled");
+			} else if (value == "Non") {
+				document.getElementById("Revenumensuel").setAttribute("disabled", "disabled");
+			}
+		}
+
+
+		function checkRevetement() {
+			if (document.getElementById("RevetementAutre").checked == true) {
+				document.getElementById("Autres").disabled = false;
+			}
+			else {
+				document.getElementById("Autres").disabled = true;
+				document.getElementById("Autres").value = "";
+
+			}
+		}
+
+		function selectPiscine(value) {
+			if (value == "Non") {
+				document.getElementById("Chauffe-piscine").hidden = true;
+				document.getElementById("Chauffe-piscine-S").disabled = true;
+			} else {
+				document.getElementById("Chauffe-piscine").hidden = false;
+				document.getElementById("Chauffe-piscine-S").disabled = false;
+			}
+		}
+
+		function selectStationnement(value) {
+			if (value == "Aucun") {
+				document.getElementById("Exterieur").hidden = true;
+				document.getElementById("Exterieur-S").disabled = true;
+				document.getElementById("NombreVoiture").hidden = true;
+				document.getElementById("NombreVoiture-S").disabled = true;
+			} else if (value == "Garage") {
+				document.getElementById("Exterieur").hidden = true;
+				document.getElementById("Exterieur-S").disabled = true;
+				document.getElementById("NombreVoiture").hidden = false;
+				document.getElementById("NombreVoiture-S").disabled = false;
+			} else if (value == "Exterieur") {
+				document.getElementById("Exterieur").hidden = false;
+				document.getElementById("Exterieur-S").disabled = false;
+				document.getElementById("NombreVoiture").hidden = false;
+				document.getElementById("NombreVoiture-S").disabled = false;
+			}
+		}
+
+		function checkSoleil(value, checkbox) {
+			if (value == "Devant") {
+				if (checkbox.checked) {
+					document.getElementById("S_Derriere").checked = false;
+					document.getElementById("S_Devant2").disabled = true;
+					document.getElementById("S_Devant2").checked = false;
+					document.getElementById("S_Derriere2").disabled = false;
+				} else {
+					document.getElementById("S_Devant2").disabled = false;
+				}
+			} else if (value == "Derriere") {
+				if (checkbox.checked) {
+					document.getElementById("S_Devant").checked = false;
+					document.getElementById("S_Derriere2").disabled = true;
+					document.getElementById("S_Derriere2").checked = false;
+					document.getElementById("S_Devant2").disabled = false;
+				} else {
+					document.getElementById("S_Derriere2").disabled = false;
+				}
+			} else if (value == "Droite") {
+				if (checkbox.checked) {
+					document.getElementById("S_Gauche").checked = false;
+					document.getElementById("S_Droite2").disabled = true;
+					document.getElementById("S_Droite2").checked = false;
+					document.getElementById("S_Gauche2").disabled = false;
+
+				} else {
+					document.getElementById("S_Droite2").disabled = false;
+				}
+			} else if (value == "Gauche") {
+				if (checkbox.checked) {
+					document.getElementById("S_Droite").checked = false;
+					document.getElementById("S_Gauche2").disabled = true;
+					document.getElementById("S_Gauche2").checked = false;
+					document.getElementById("S_Droite2").disabled = false;
+				} else {
+					document.getElementById("S_Gauche2").disabled = false;
+				}
+			}
+		}
+		function checkSoleil2(value) {
+			if (value == "Devant2") {
+				if (checkbox.checked) {
+					document.getElementById("S_Derriere2").checked = false;
+					document.getElementById("S_Devant").disabled = true;
+					document.getElementById("S_Devant").checked = false;
+					document.getElementById("S_Derriere").disabled = false;
+				} else {
+					document.getElementById("S_Devant").disabled = false;
+				}
+			} else if (value == "Derriere2") {
+				if (checkbox.checked) {
+					document.getElementById("S_Devant2").checked = false;
+					document.getElementById("S_Derriere").disabled = true;
+					document.getElementById("S_Derriere").checked = false;
+					document.getElementById("S_Devant").disabled = false;
+				} else {
+					document.getElementById("S_Derriere").disabled = false;
+				}
+			} else if (value == "Droite2") {
+				if (checkbox.checked) {
+					document.getElementById("S_Gauche2").checked = false;
+					document.getElementById("S_Droite").disabled = true;
+					document.getElementById("S_Droite").checked = false;
+					document.getElementById("S_Gauche").disabled = false;
+
+				} else {
+					document.getElementById("S_Droite").disabled = false;
+				}
+			} else if (value == "Gauche2") {
+				if (checkbox.checked) {
+					document.getElementById("S_Droite2").checked = false;
+					document.getElementById("S_Gauche").disabled = true;
+					document.getElementById("S_Gauche").checked = false;
+					document.getElementById("S_Droite").disabled = false;
+				} else {
+					document.getElementById("S_Gauche").disabled = false;
+				}
+			}
+		}
+
+		function checkCS(value) {
+			if (value == "Oui") {
+				document.getElementById("CS_douche").disabled = false;
+				document.getElementById("CS_baignoire").disabled = false;
+			} else {
+				document.getElementById("CS_douche").disabled = true;
+				document.getElementById("CS_baignoire").disabled = true;
+				document.getElementById("CS_douche").checked = false;
+				document.getElementById("CS_baignoire").checked = false;
+			}
+		}
+
+		function checkSalon(id, checkbox) {
+			if (checkbox.checked) {
+				// Salle a manger
+				if (id == "M_Separe") {
+					// Disable checkboxs
+					document.getElementById("M_JumeleC").disabled = true;
+					document.getElementById("M_JumeleS").disabled = true;
+					document.getElementById("S_JumeleS").disabled = true;
+					// Uncheck checkboxs
+					document.getElementById("M_JumeleC").checked = false;
+					document.getElementById("M_JumeleS").checked = false;
+					document.getElementById("S_JumeleS").checked = false;
+
+				} else if (id == "M_JumeleC") {
+					// Disable checkboxs
+					document.getElementById("M_Separe").disabled = true;
+					if (document.getElementById("M_JumeleS").checked) {
+						document.getElementById("S_JumeleC").checked = true;
+					}
+					// Uncheck checkboxs
+					document.getElementById("M_Separe").checked = false;
+
+				} else if (id == "M_JumeleS") {
+					// Disable checkboxs
+					document.getElementById("M_Separe").disabled = true;
+					document.getElementById("S_Separe").disabled = true;
+					document.getElementById("S_JumeleS").disabled = false;
+					if (document.getElementById("M_JumeleC").checked || document.getElementById("S_JumeleS").checked) {
+						document.getElementById("S_JumeleC").checked = true;
+						document.getElementById("M_JumeleC").checked = true;
+					}
+					// Uncheck checkboxs
+					document.getElementById("M_Separe").checked = false;
+					document.getElementById("S_Separe").checked = false;
+					document.getElementById("S_JumeleS").checked = true;
+					// Salon
+				} else if (id == "S_Separe") {
+					// Disable checkboxs
+					document.getElementById("S_JumeleC").disabled = true;
+					document.getElementById("S_JumeleS").disabled = true;
+					document.getElementById("M_JumeleS").disabled = true;
+					// Uncheck checkboxs
+					document.getElementById("S_JumeleC").checked = false;
+					document.getElementById("S_JumeleS").checked = false;
+					document.getElementById("M_JumeleS").checked = false;
+				} else if (id == "S_JumeleC") {
+					// Disable checkboxs
+					document.getElementById("S_Separe").disabled = true;
+					if (document.getElementById("M_JumeleC").checked || document.getElementById("S_JumeleS").checked) {
+						document.getElementById("S_JumeleC").checked = true;
+						document.getElementById("M_JumeleC").checked = true;
+					}
+
+					// Uncheck checkboxs
+					document.getElementById("S_Separe").checked = false;
+				} else if (id == "S_JumeleS") {
+					// Disable checkboxs
+					document.getElementById("S_Separe").disabled = true;
+					document.getElementById("M_Separe").disabled = true;
+					document.getElementById("M_JumeleS").disabled = false;
+					if (document.getElementById("S_JumeleC").checked) {
+						document.getElementById("M_JumeleC").checked = true;
+					}
+					// Uncheck checkboxs
+					document.getElementById("S_Separe").checked = false;
+					document.getElementById("M_Separe").checked = false;
+					document.getElementById("M_JumeleS").checked = true;
+					// Salon
+				}
+			} else {
+				if (id == "M_Separe") {
+					// Disable checkboxs
+					document.getElementById("M_JumeleC").disabled = false;
+					document.getElementById("M_JumeleS").disabled = false;
+					document.getElementById("S_JumeleS").disabled = false;
+
+
+				} else if (id == "M_JumeleC") {
+					// Disable checkboxs
+					document.getElementById("M_Separe").disabled = false;
+
+
+
+				} else if (id == "M_JumeleS") {
+					// Disable checkboxs
+					document.getElementById("M_Separe").disabled = false;
+					document.getElementById("S_Separe").disabled = false;
+					document.getElementById("S_JumeleS").disabled = true;
+
+					// Salon
+				} else if (id == "S_Separe") {
+					// Disable checkboxs
+					document.getElementById("S_JumeleC").disabled = false;
+					document.getElementById("S_JumeleS").disabled = false;
+					document.getElementById("M_JumeleS").disabled = false;
+
+				} else if (id == "S_JumeleC") {
+					// Disable checkboxs
+					document.getElementById("S_Separe").disabled = false;
+
+
+				} else if (id == "S_JumeleS") {
+					// Disable checkboxs
+					document.getElementById("S_Separe").disabled = false;
+					document.getElementById("M_Separe").disabled = false;
+					document.getElementById("M_JumeleS").disabled = true;
+
+				}
+			}
+
+		}
+
+		function checkTerase(checkbox) {
+			if (checkbox.checked) {
+				document.getElementById("T_Couverte").disabled = false;
+				document.getElementById("T_Ncouverte").disabled = false;
+			} else {
+				document.getElementById("T_Couverte").disabled = true;
+				document.getElementById("T_Ncouverte").disabled = true;
+			}
+		}
+
+		function checkElec(radio) {
+			if (radio == "Autre") {
+				document.getElementById("Electric_Type").disabled = false;
+			} else {
+				document.getElementById("Electric_Type").disabled = true;
+				document.getElementById("Electric_Type").value = "";
+			}
+		}
+
+		function checkVente(checkbox) {
+			if (checkbox.checked) {
+				document.getElementById("VenteAutre").disabled = false;
+			}
+			else {
+				document.getElementById("VenteAutre").disabled = true;
+				document.getElementById("VenteAutre").value = "";
+
+			}
+		}
+
+		function checkDet(id) {
+			if (id == "vendeur") {
+				document.getElementById("vendeur-val").innerHTML = document.getElementById(id).value;
+			} else if (id == "tel") {
+				document.getElementById("tel-val").innerHTML = document.getElementById(id).value;
+
+			} else if (id == "cel") {
+				document.getElementById("cel-val").innerHTML = document.getElementById(id).value;
+
+			} else if (id == "courriel") {
+				document.getElementById("courriel-val").innerHTML = document.getElementById(id).value;
+
+			} else if (id == "prix") {
+				document.getElementById("prix-val").innerHTML = document.getElementById(id).value;
+
+			} else if (id == "adresse") {
+				document.getElementById("adresse-val").innerHTML = document.getElementById(id).value;
+
+			} else if (id == "TypeHab") {
+				document.getElementById("TypeHab-val").innerHTML = document.getElementById(id).value;
+			}
+		}
+	</script>
+</head>
+
+<body>
+
+<button  class="button1"  onclick = "changeColor('#000','#282626'),ecritureNoir('white');">Mode Sombre</button>
+<button  class="button"  onclick = "changeColor('#c4c4c4','#7f7f7f'),ecritureNoir('black');">Mode Claire</button>
+<button  class="button3"  onclick = "changeColor('#383a4f','#525575'),ecritureNoir('white');">Mode Original</button>
+<input class="button2" type="button" onclick='document.location.reload(false)' value="Réinitialisé"/>
+
+<div id="page-content" class="page-content">
+	<div class="wizard-v5-content">
+
+		<div id="wizard-form" class="wizard-form">
+			<h1 style="text-align: center">FICHE DE VISITE</h1>
+			<form class="form-register" id="form-register" action="#" method="post">
+				<div id="form-total">
+
+					<!-- SECTION 1 -->
+					<h2>
+						<span class="step-icon"><i class="zmdi zmdi-check"></i></span>
+						<span class="step-text">Principales</span>
+					</h2>
+					<section class="old">
+						<div class="inner">
+
+							<!-- Adresse -->
+							<div class="form-row">
+								<div class="form-holder form-holder-2">
+									<label for="Adresse">Adresse</label>
+									<input type="text" placeholder="622 Dixie Path, South Tobinchester, UT 98336"
+										   class="form-control" id="adresse" name="Adresse" onchange="checkDet(id)">
+									<span><i class="zmdi zmdi-pin"></i></span>
+								</div>
+							</div>
+
+							<br><br>
+
+							<!-- Courtier et Telephone-->
+							<div class="form-row">
+								<div class="form-holder">
+									<label for="Courtier">Courtier:</label>
+									<input type="text" placeholder="ex : luc " id="vendeur" name="Courtier"
+										   onchange="checkDet(id)">
+								</div>
+								<div class="form-holder">
+									<label for="Téléphone">Téléphone</label>
+									<input type="text" placeholder="777-888-8888"
+										   pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" class="form-control" id="tel"
+										   name="Téléphone" onchange="checkDet(id)">
+								</div>
+							</div>
+
+							<!-- Celulaire et Courriel -->
+							<div class="form-row">
+								<div class="form-holder">
+									<label for="Célulaire">Célulaire</label>
+									<input type="text" placeholder="777-888-8888"
+										   pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" class="form-control" id="cel"
+										   name="Célulaire" onchange="checkDet(id)">
+								</div>
+								<div class="form-holder">
+									<label for="Courriel">Courriel:</label>
+									<input type="email" placeholder="ex : abc@yahoo.fr" id="courriel"
+										   name="Courriel" onchange="checkDet(id)">
+								</div>
+							</div>
+
+							<br><br>
+
+							<!-- Prix et Evaluation -->
+							<div class="form-row">
+								<div class="form-holder">
+									<label for="Prix">Prix demandé:</label>
+									<input type="number" placeholder="ex : 32000" id="prix" name="Prix demandé"
+										   min="0" onchange="checkDet(id)"></input><span class="unite"
+																						 title="dollars canadiens">$</span>
+								</div>
+								<div class="form-holder">
+									<label for="Evaluation">Évaluation municipale:</label>
+									<input type="number" placeholder="ex : 32000" id="Evaluation"
+										   name="Évaluation municipale" min="0"></input><span class="unite"
+																							  title="dollars canadiens">$</span>
+								</div>
+							</div>
+
+							<!-- Taxe scolaire et municipale -->
+							<div class="form-row">
+								<div class="form-holder">
+									<label for="TaxeS">Montant de la taxe scolaire:</label>
+									<input type="text" placeholder="ex : 32000" id="TaxeS"
+										   name="Montant de la taxe scolaire" min="0"></input><span class="unite"
+																									title="dollars canadiens">$</span>
+								</div>
+								<div class="form-holder">
+									<label for="TaxeM">Montant de la taxe municipale :</label>
+									<input type="number" placeholder="ex : 32000" id="TaxeM"
+										   name="Montant de la taxe municipale" min="0"></input><span class="unite"
+																									  title="dollars canadiens">$</span>
+								</div>
+							</div>
+							<br>
+							<!-- Propriete A revenu -->
+							<div class="form-row table">
+								<div class="tablerow" id="radio3">
+									<div class="tablecell head">
+										<label for="ProprieteArevenu">Propriété à revenu:</label>
+									</div>
+									<div class="tablecell"><input type="radio" name="ProprieteArevenu" value="Non"
+																  onclick="checkRevenu(value)">Non</div>
+									<div class="tablecell"> <input id="revenu_oui" type="radio"
+																   name="ProprieteArevenu" value="Oui" onclick="checkRevenu(value)">Oui
+									</div>
+									<div class="tablecell">
+									</div>
+								</div>
+							</div>
+
+							<!-- Revenu -->
+							<div class="form-row">
+								<div class="form-holder">
+									<label for="Revenumensuel">Revenu mensuel:</label>
+									<input type="number" placeholder="ex : 800" id="Revenumensuel"
+										   name="Revenu mensuel" min="0" disabled></input><span class="unite"
+																								title="dollars canadiens">$</span>
+								</div>
+							</div>
+							<br><br>
+
+							<!-- Type Habitation -->
+							<div class="form-row">
+								<div class="form-holder form-holder-2">
+									<label for="Type d’habitation">Type d’habitation:</label>
+									<select id="TypeHab" name="Type d’habitation" onchange="checkDet(id)" required>
+										<option value="" selected disabled hidden>-- Choisissez une option --
+										</option>
+										<option value="Maison individuelle">Maison individuelle</option>
+										<option value="Maison jumelée">Maison jumelée</option>
+										<option value="Maison en rangée">Maison en rangée</option>
+										<option value="Duplex">Duplex</option>
+										<option value="Triplex">Triplex</option>
+										<option value="Petit immeuble">Petit immeuble</option>
+										<option value="Tour d’habitation">Tour d’habitation</option>
+										<option value="Plain-pied (bungalow)">Plain-pied (bungalow)</option>
+										<option value="Copropriété">Copropriété</option>
+									</select>
+								</div>
+							</div>
+
+							<!-- Construction -->
+							<div class="form-row table">
+								<div class="tablerow">
+									<div id="radio2" class="tablecell head">
+										<label for="Construction">Construction:
+											<div class="tooltip">
+												<svg width="20" height="20"
+													 viewBox="0 0 1792 1792">
+													<path fill="white"
+														  d="M1024 1376v-192q0-14-9-23t-23-9h-192q-14 0-23 9t-9 23v192q0 14 9 23t23 9h192q14 0 23-9t9-23zm256-672q0-88-55.5-163t-138.5-116-170-41q-243 0-371 213-15 24 8 42l132 100q7 6 19 6 16 0 25-12 53-68 86-92 34-24 86-24 48 0 85.5 26t37.5 59q0 38-20 61t-68 45q-63 28-115.5 86.5t-52.5 125.5v36q0 14 9 23t23 9h192q14 0 23-9t9-23q0-19 21.5-49.5t54.5-49.5q32-18 49-28.5t46-35 44.5-48 28-60.5 12.5-81zm384 192q0 209-103 385.5t-279.5 279.5-385.5 103-385.5-103-279.5-279.5-103-385.5 103-385.5 279.5-279.5 385.5-103 385.5 103 279.5 279.5 103 385.5z" />
+													<g> <text x="0" y="15">Label 1</text></g>
+												</svg>
+												<span class="tooltiptext">Les constructions neuves n'ont jamais été habitées.</span>
+											</div>
+
+										</label>
+									</div>
+									<div class="tablecell">
+										<input type="radio" name="Construction" value="Existante">Existante
+									</div>
+									<div class="tablecell">
+										<input type="radio" name="Construction" value="Neuve">Neuve
+									</div>
+									<div class="tablecell">
+									</div>
+								</div>
+
+							</div>
+							<div class="form-row">
+								<div class="form-holder">
+									<label for="AgeImmeuble">Âge de l’habitation:</label>
+									<input type="number" placeholder="ex : 12" min="0" id="AgeImmeuble"
+										   name="Age Immeuble"></input><span class="unite" title="années">ans</span>
+								</div>
+							</div>
+
+							<br><br>
+							<!-- Egout -->
+							<div class="form-row table">
+								<div id="radio6" class="tablerow">
+									<div class="tablecell head">
+										<label for="Egout">Égout :</label>
+									</div>
+									<div class="tablecell">
+										<input type="radio" name="Egout" value="Municipal">Municipal
+									</div>
+									<div class="tablecell">
+										<input type="radio" name="Egout" value="Fosse septique">Fosse septique
+									</div>
+									<div class="tablecell">
+									</div>
+								</div>
+							</div>
+
+							<!-- Eau -->
+							<div class="form-row table">
+								<div id="radio7" class="tablerow">
+									<div class="tablecell head">
+										<label for="Eau">Eau:</label>
+									</div>
+									<div class="tablecell">
+										<input type="radio" name="Eau" value="Municipalité">Municipalité
+									</div>
+									<div class="tablecell">
+										<input type="radio" name="Eau" value="Puits">Puits
+									</div>
+									<div class="tablecell">
+									</div>
+								</div>
+							</div>
+
+							<br><br>
+
+							<!-- Quartier -->
+							<div class="form-row">
+								<div class="form-holder form-holder-2">
+									<label for="Quartier">Type de Quartier : </label>
+									<select id="Type d’habitation" name="Quartier" required>
+										<option value="" selected disabled hidden>-- Choisissez une option --
+										</option>
+										<option value="Residentiel">Residentiel</option>
+										<option value="Commercial">Commercial</option>
+										<option value="Industriel">Industriel</option>
+										<option value="Rural">Rural</option>
+									</select>
+								</div>
+							</div>
+
+							<!-- Circulation -->
+							<div class="form-row table">
+								<div id="radio8" class="tablerow">
+									<div class="tablecell head">
+										<label for="Circulation">Circulation:</label>
+									</div>
+									<div class="tablecell">
+										<input type="radio" name="Circulation" value="Voie principale">Voie
+										principale
+									</div>
+									<div class="tablecell">
+										<input type="radio" name="Circulation" value="Rue tranquille">Rue tranquille
+									</div>
+									<div class="tablecell">
+										<input type="radio" name="Circulation" value="Cul-de-sac">Cul-de-sac
+									</div>
+								</div>
+							</div>
+
+							<!-- Bruit Ambiant -->
+							<div class="form-row table">
+								<div id="radio5" class="tablerow">
+									<div class="tablecell head">
+										<label for="BruitAmbiant">Bruit ambiant:</label>
+									</div>
+									<div class="tablecell">
+										<input type="radio" name="BruitAmbiant" value="Non">Auccun
+									</div>
+									<div class="tablecell">
+										<input type="radio" name="BruitAmbiant" value="Acceptable">Acceptable
+									</div>
+									<div class="tablecell">
+										<input type="radio" name="BruitAmbiant" value="Irritant">Irritant
+									</div>
+								</div>
+							</div>
+							<br>
+
+
+						</div>
+					</section>
+					<!-- SECTION 2 -->
+					<h2>
+						<span class="step-icon"><i class="zmdi zmdi-check"></i></span>
+						<span class="step-text">Extérieur </span>
+					</h2>
+					<section class="old">
+						<div class="inner">
+
+							<!-- Fondation -->
+							<div class="form-row table">
+								<div id="radio9" class="tablerow">
+									<div class="tablecell head">
+										<label for="Fondations">Fondations:</label>
+									</div>
+									<div class="tablecell">
+										<input type="radio" name="Fondations" value="Béton">Béton
+									</div>
+									<div class="tablecell">
+										<input type="radio" name="Fondations" value="Blocs de béton">Blocs de béton
+									</div>
+									<div class="tablecell">
+										<input type="radio" name="Fondations" value="Bois traité">Bois traité
+									</div>
+								</div>
+							</div>
+
+							<!-- Revetement Exterieur -->
+							<div class="form-row">
+								<fieldset>
+									<legend>Revêtement</legend>
+									<div id="radio10">
+										<div class="tablerow">
+											<div class="tablecell head">
+												<label for="Revetement_Exterieur">Façade:</label>
+											</div>
+											<div class="tablecell"></div>
+											<div class="tablecell"></div>
+											<div class="tablecell"></div>
+										</div>
+										<div class="tablerow">
+											<div class="tablecell head"></div>
+											<div class="tablecell">
+												<input type="checkbox" name="Revetement_Exterieur" value="Bois">Bois
+											</div>
+											<div class="tablecell"></div>
+											<div class="tablecell"></div>
+										</div>
+										<div class="tablerow">
+											<div class="tablecell head"></div>
+											<div class="tablecell">
+												<input type="checkbox" name="Revetement_Exterieur"
+													   value="Brique">Brique
+											</div>
+											<div class="tablecell"></div>
+											<div class="tablecell"></div>
+										</div>
+										<div class="tablerow">
+											<div class="tablecell head"></div>
+											<div class="tablecell">
+												<input type="checkbox" name="Revetement_Exterieur"
+													   value="Vinyle">Vinyle
+											</div>
+											<div class="tablecell"></div>
+											<div class="tablecell"></div>
+										</div>
+										<div class="tablerow">
+											<div class="tablecell head"></div>
+											<div class="tablecell">
+												<input type="checkbox" name="Revetement_Exterieur"
+													   value="Aluminium">Aluminium
+											</div>
+											<div class="tablecell"></div>
+											<div class="tablecell"></div>
+										</div>
+										<div class="tablerow">
+											<div class="tablecell head"></div>
+											<div class="tablecell">
+												<input type="checkbox" name="Revetement_Exterieur"
+													   value="Fibrociment">Fibrociment
+											</div>
+											<div class="tablecell"></div>
+											<div class="tablecell"></div>
+										</div>
+										<div class="tablerow">
+											<div class="tablecell head"></div>
+											<div class="tablecell">
+												<input type="checkbox" name="Revetement_Exterieur"
+													   value="Pierre">Pierre
+											</div>
+											<div class="tablecell"></div>
+											<div class="tablecell"></div>
+										</div>
+										<div class="tablerow">
+											<div class="tablecell head"></div>
+											<div class="tablecell">
+												<input id="RevetementAutre" type="checkbox"
+													   name="Revetement_Exterieur" value="Autre"
+													   onclick="checkRevetement()">Autre
+												<div class="form-holder form-holder-2">
+													<input type="text" id="Autres"
+														   class="form-control input-step-2-2" name="Autres" disabled>
+												</div>
+											</div>
+											<div class="tablecell"></div>
+											<div class="tablecell"></div>
+										</div>
+									</div>
+									<br>
+									<div class="form-row ">
+										<div class="form-holder form-holder-2">
+											<label for="Entrée">Entrée :</label>
+											<select id="Entrée" name="Entrée" required>
+												<option value="" selected disabled hidden>-- Choisissez une option
+													--
+												</option>
+												<option value="Asphalte">Asphalte</option>
+												<option value="Pavé de béton">Pavé de béton</option>
+												<option value="Gravier">Gravier</option>
+												<option value="Terre">Terre</option>
+
+											</select>
+										</div>
+									</div>
+								</fieldset>
+
+							</div>
+
+							<!-- Fenetre -->
+							<div class="form-row ">
+								<fieldset>
+									<legend>Fenêtre</legend>
+									<div class="form-row ">
+										<div class="form-holder form-holder-2">
+											<label for="FenêtresVitrage">Vitrage</label>
+											<select id="FenêtresVitrage" name="Fenêtres : vitrage" required>
+												<option value="" selected disabled hidden>-- Choisissez une option
+													--
+												</option>
+												<option value="Simple">Simple</option>
+												<option value="Double">Double</option>
+												<option value="Triple">Triple</option>
+												<option value="Faible émissivité">Faible émissivité</option>
+											</select>
+										</div>
+									</div>
+
+									<div class="form-row ">
+										<div class="form-holder form-holder-2">
+											<label for="FenêtresConstruction">Construction</label>
+											<select id="FenêtresConstruction" name="Fenêtres : construction"
+													required>
+												<option value="" selected disabled hidden>-- Choisissez une option
+													--
+												</option>
+												<option value="Bois">Bois</option>
+												<option value="Vinyle / PVC">Vinyle / PVC</option>
+												<option value="Aluminium">Aluminium</option>
+											</select>
+										</div>
+									</div>
+								</fieldset>
+							</div>
+
+
+							<!-- Toiture -->
+							<div class="form-row">
+								<fieldset>
+									<legend>Toiture</legend>
+									<div class="form-holder ">
+										<label for="Age">Âge</label>
+										<input type="number" id="Age" name="Âge" placeholder="ex : 12"
+											   min="0"></input><span class="unite" title="années">ans</span>
+									</div>
+									<br>
+									<div class="form-row table">
+										<div id="radio11" class="tablerow">
+											<div class="tablecell head">
+												<label for="Étatdelatoiture">État de la toiture :</label>
+											</div>
+											<div class="tablecell">
+												<input type="radio" name="État de la toiture"
+													   value="Mauvais">Mauvais
+											</div>
+											<div class="tablecell">
+												<input type="radio" name="État de la toiture" value="Moyen">Moyen
+											</div>
+											<div class="tablecell">
+												<input type="radio" name="État de la toiture" value="Bon">Bon
+											</div>
+										</div>
+									</div>
+								</fieldset>
+							</div>
+
+							<!-- Terrain -->
+							<div class="form-row">
+								<fieldset>
+									<legend>Terrain</legend>
+
+									<br>
+
+									<div id="radio12">
+										<div class="tablerow">
+											<div class="tablecell head">
+												<label for="Revetement_Exterieur">Taille:</label>
+											</div>
+											<div class="tablecell"> <input type="radio" name="Terrain"
+																		   value="Petit">Petit
+											</div>
+											<div class="tablecell"> <input type="radio" name="Terrain"
+																		   value="Moyen">Moyen
+											</div>
+											<div class="tablecell"> <input type="radio" name="Terrain"
+																		   value="Grand">Grand
+											</div>
+										</div>
+										<br>
+										<div class="">
+
+											<div class="form-holder">
+												<label for="Dimensions">Dimensions:</label>
+												<div class="form-row">
+													<div class="form-holder">
+														<label for="Longueur">Longueur:</label>
+
+														<input type="number" id="Dimensions" name="Longueur"
+															   placeholder="ex : 120" min="0"></input><span
+															class="unite" title="mètres">m</span>
+													</div>
+
+
+													<div class="form-holder">
+														<label for="Largueur">Largueur:</label>
+
+														<input type="number" id="Dimensions" name="Largueur"
+															   placeholder="ex : 120" min="0"></input><span
+															class="unite" title="mètres">m</span>
+													</div>
+												</div>
+											</div>
+
+
+										</div>
+										<br>
+									</div>
+
+									<div id="radio13">
+										<div class="tablerow">
+											<div class="tablecell head">
+												<label for="Revetement_Exterieur">Aménagements:</label>
+											</div>
+											<div class="tablecell"></div>
+											<div class="tablecell"></div>
+											<div class="tablecell"></div>
+										</div>
+										<div class="tablerow">
+											<div class="tablecell head"></div>
+											<div class="tablecell">
+												<input type="checkbox" name="Revêtement extérieur"
+													   value="Pelouse">Pelouse
+											</div>
+											<div class="tablecell"></div>
+											<div class="tablecell"></div>
+										</div>
+										<div class="tablerow">
+											<div class="tablecell head"></div>
+											<div class="tablecell">
+												<input type="checkbox" name="Revêtement extérieur"
+													   value="Boisé">Boisé
+											</div>
+											<div class="tablecell"></div>
+											<div class="tablecell"></div>
+										</div>
+
+										<div class="tablerow">
+											<div class="tablecell head"></div>
+											<div class="tablecell">
+												<input type="checkbox" name="Revêtement extérieur"
+													   value="Terrasse (patio) non couverte"
+													   onchange="checkTerase(this)">Terrasse
+											</div>
+											<div class="tablecell">
+												<input id="T_Couverte" type="radio" name="Terrace" value="Couverte"
+													   disabled>Couverte
+											</div>
+											<div class="tablecell">
+												<input id="T_Ncouverte" type="radio" name="Terrace"
+													   value="Non_Couverte" disabled>Non Couverte
+											</div>
+										</div>
+
+										<div class="tablerow">
+											<div class="tablecell head"></div>
+											<div class="tablecell">
+												<input type="checkbox" name="Revêtement extérieur"
+													   value="Gloriette (Gazebo)">Gazebo
+											</div>
+											<div class="tablecell"></div>
+											<div class="tablecell"></div>
+										</div>
+										<div class="tablerow">
+											<div class="tablecell head"></div>
+											<div class="tablecell">
+												<input type="checkbox" name="Revêtement extérieur"
+													   value="Cabanon">Cabanon
+											</div>
+											<div class="tablecell"></div>
+											<div class="tablecell"></div>
+										</div>
+										<div class="tablerow">
+											<div class="tablecell head"></div>
+											<div class="tablecell">
+												<input type="checkbox" name="Revêtement extérieur"
+													   value="Clôture">Clôture
+											</div>
+											<div class="tablecell"></div>
+											<div class="tablecell"></div>
+										</div>
+										<div class="tablerow">
+											<div class="tablecell head"></div>
+											<div class="tablecell">
+												<input type="checkbox" name="Revêtement extérieur" value="Haie">Haie
+											</div>
+											<div class="tablecell"></div>
+											<div class="tablecell"></div>
+										</div>
+									</div>
+									<br>
+
+									<div id="radio15">
+										<div class="tablerow">
+											<div class="form-holder form-holder-2">
+												<label for="Stationnement">Stationnement:</label>
+												<select id="Stationnement" name="Stationnement"
+														onchange="selectStationnement(value)">
+													<option value="" selected disabled hidden>-- Choisissez une
+														option
+														--
+													</option>
+													<option value="Aucun">Aucun</option>
+													<option value="Garage">Garage</option>
+													<option value="Exterieur">Exterieur</option>
+												</select>
+											</div>
+										</div>
+										<br>
+
+
+
+										<div class="tablerow">
+											<div id="Exterieur" class="form-holder form-holder-2" hidden>
+												<label for="Exterieur-S">Exterieur:</label>
+												<select id="Exterieur-S" name="Exterieur-S" disabled>
+													<option value="" selected disabled hidden>-- Choisissez une
+														option
+														--
+													</option>
+													<option value="Couvert">Couvert</option>
+													<option value="Non Couvert">Non Couvert</option>
+												</select>
+											</div>
+										</div>
+
+										<div class="tablerow">
+											<div id="NombreVoiture" class="form-holder form-holder-2" hidden>
+												<label for="NombreVoiture-S">Nombre de voitures:</label>
+												<input type="number" id="NombreVoiture-S" name="NombreVoiture-S"
+													   placeholder="ex : 1" disabled>
+											</div>
+										</div>
+
+									</div>
+									<br>
+
+									<div id="radio14">
+										<div class="tablerow">
+											<div class="form-holder form-holder-2">
+												<label for="Piscine">Piscine:</label>
+												<select id="Piscine" name="Piscine" onchange="selectPiscine(value)">
+													<option value="" selected disabled hidden>-- Choisissez une
+														option
+														--
+													</option>
+													<option value="Non">Non</option>
+													<option value="Creusée">Creusée</option>
+													<option value="Semi-creusée">Semi-creusée</option>
+													<option value="De surface">De surface</option>
+												</select>
+											</div>
+										</div>
+										<br>
+										<div class="tablerow">
+											<div id="Chauffe-piscine" class="form-holder form-holder-2" hidden>
+												<label for="Chauffe-piscine">Chauffe-piscine :</label>
+												<select id="Chauffe-piscine-S" name="Chauffe-piscine" disabled>
+													<option value="" selected disabled hidden>-- Choisissez une
+														option
+														--
+													</option>
+													<option value="Aucun">Aucun</option>
+													<option value="Électrique">Électrique</option>
+													<option value="GazNaturel">Au gaz naturel</option>
+													<option value="De surface">De surface</option>
+												</select>
+											</div>
+										</div>
+
+
+									</div>
+								</fieldset>
+							</div>
+
+							<!-- Orientation Ensoleillement -->
+							<div class="form-row">
+
+								<fieldset>
+									<legend>
+										<h4>Orientation / ensoleillement</h4>
+									</legend>
+
+									<div class="">
+
+										<div class="form-holder ">
+											<label for="Dimensions">Matin:</label>
+										</div>
+										<div class="table">
+											<div class="tablerow">
+												<div class="tablecell head">
+													<label for="Exterieur">Exterieur:</label>
+												</div>
+												<div class="tablecell">
+												</div>
+												<div class="tablecell">
+												</div>
+												<div class="tablecell">
+												</div>
+											</div>
+
+											<div class="tablerow">
+												<div class="tablecell head">
+												</div>
+												<div class="tablecell"> <input id="S_Devant" type="checkbox"
+																			   name="Terrain" value="Devant"
+																			   onclick="checkSoleil(value, this)">Devant
+												</div>
+												<div class="tablecell"> --ou--
+												</div>
+												<div class="tablecell"><input id="S_Derriere" type="checkbox"
+																			  name="Terrain" value="Derriere"
+																			  onclick="checkSoleil(value, this)">Derriére
+												</div>
+											</div>
+											<div class="tablerow">
+												<div class="tablecell head">
+												</div>
+												<div class="tablecell"><input id="S_Droite" type="checkbox"
+																			  name="Terrain" value="Droite"
+																			  onclick="checkSoleil(value, this)">Droite
+												</div>
+												<div class="tablecell"> --ou--
+												</div>
+												<div class="tablecell"><input id="S_Gauche" type="checkbox"
+																			  name="Terrain" value="Gauche"
+																			  onclick="checkSoleil(value, this)">Gauche
+												</div>
+											</div>
+										</div>
+										<br>
+										<div class="form-row">
+											<div class="form-holder form-holder-2">
+												<label for="Pièce"> Intérieur:</label>
+												<input type="text" class="form-control input-step-2-2" id="Pièce"
+													   name="Piece" placeholder="ex : cuisine, salon, chambre ...">
+											</div>
+										</div>
+									</div>
+									<br><br><br>
+									<div class="">
+
+										<div class="form-holder ">
+											<label for="Dimensions">Apres-midi:</label>
+										</div>
+										<div class="table">
+											<div class="tablerow">
+												<div class="tablecell head">
+													<label for="Exterieur">Exterieur:</label>
+												</div>
+												<div class="tablecell">
+												</div>
+												<div class="tablecell">
+												</div>
+												<div class="tablecell">
+												</div>
+											</div>
+
+											<div class="tablerow">
+												<div class="tablecell head">
+												</div>
+												<div class="tablecell"> <input id="S_Devant2" type="checkbox"
+																			   name="Terrain" value="Devant2"
+																			   onclick="checkSoleil2(value)">Devant
+												</div>
+												<div class="tablecell"> --ou--
+												</div>
+												<div class="tablecell"><input id="S_Derriere2" type="checkbox"
+																			  name="Terrain" value="Derriere2"
+																			  onclick="checkSoleil2(value)">Derriére
+												</div>
+											</div>
+											<div class="tablerow">
+												<div class="tablecell head">
+												</div>
+												<div class="tablecell"><input id="S_Droite2" type="checkbox"
+																			  name="Terrain" value="Droite2"
+																			  onclick="checkSoleil2(value)">Droite
+												</div>
+												<div class="tablecell"> --ou--
+												</div>
+												<div class="tablecell"><input id="S_Gauche2" type="checkbox"
+																			  name="Terrain" value="Gauche2"
+																			  onclick="checkSoleil2(value)">Gauche
+												</div>
+											</div>
+										</div>
+										<br>
+										<div class="form-row">
+											<div class="form-holder form-holder-2">
+												<label for="Pièce"> Intérieur:</label>
+												<input type="text" class="form-control input-step-2-2" id="Pièce"
+													   name="Piece" placeholder="ex : cuisine, salon, chambre ...">
+											</div>
+										</div>
+
+									</div>
+
+
+								</fieldset>
+							</div>
+
+							<br>
+						</div>
+					</section>
+
+					<!-- SECTION 3 -->
+					<h2>
+						<span class="step-icon"><i class="zmdi zmdi-check"></i></span>
+						<span class="step-text">Intérieur</span>
+					</h2>
+					<section class="new">
+						<div class="inner">
+
+							<!-- Superficie habitable -->
+							<div class="form-row">
+								<div class="form-holder form-holder-2">
+									<label for="account_name">Superficie habitable :</label>
+									<input type="text" placeholder="ex : 100" class="form-control input-step-2-1"
+										   id="account_name" name="account_name"></input><span class="unite"
+																							   title="metre cube">&#13217;</span>
+								</div>
+							</div>
+
+							<!-- Nombre piece (chabmre + Salon) -->
+							<div class="form-row">
+								<div class="form-holder">
+									<label for="branch">Nombre total de pièces:</label>
+									<input type="number" placeholder="chambres + salons/salle à manger"
+										   class="form-control input-step-2" id="branch" name="branch" min="0">
+								</div>
+							</div>
+							<!-- Master bedroom -->
+							<fieldset>
+								<legend>Chambre à coucher principale avec salle de bain
+								</legend>
+								<div id="radio2" class="">
+									<div class="tablerow">
+										<div class="tablecell">
+											<input id="CS_oui" onclick="checkCS(value)" type="radio" name="gender1"
+												   value="Oui"> Oui
+										</div>
+										<div class="tablecell">
+											<input id="CS_douche" type="checkbox" name="douche"
+												   value=" Détecteurs de fumée" disabled> Douche
+										</div>
+										<div class="tablecell">
+											<input id="CS_baignoire" type="checkbox" name="baignoire"
+												   value="Baignoire" disabled> Baignoire
+										</div>
+										<div class="tablecell">
+
+										</div>
+									</div>
+									<br>
+									<div class="tablerow">
+										<div class="tablecell">
+											<input id="CS_non" onclick="checkCS(value)" type="radio" name="gender1"
+												   value="Non"> Non
+										</div>
+										<div class="tablecell">
+										</div>
+										<div class="tablecell">
+										</div>
+										<div class="tablecell">
+										</div>
+									</div>
+								</div>
+								<br>
+							</fieldset>
+							<br>
+
+							<!-- Nombre Chambre -->
+							<fieldset>
+								<legend>Nombre de chambres à coucher</legend>
+								<div class="form-row">
+									<div class="form-holder">
+										<label for="Rez-de-chaussée">Rez-de-chaussée:</label>
+										<input type="number" class="form-control input-step-2" id="bank"
+											   name="Rez-de-chaussée" min="0">
+
+									</div>
+									<div class="form-holder">
+										<label for="Étage">Étage:</label>
+										<input type="number" class="form-control input-step-2" id="branch"
+											   name="Étage" min="0">
+									</div>
+
+									<div class="form-holder">
+										<label for="Sous-sol">Sous-sol:</label>
+										<input type="number" class="form-control input-step-2" id="branch"
+											   name="Sous-sol" min="0">
+									</div>
+								</div>
+
+							</fieldset>
+
+							<br>
+
+							<!-- Salle d'eau (2 section)-->
+							<fieldset>
+								<legend>Nombre de salles d’eau</legend>
+								<div class="form-row">
+									<div class="form-holder">
+										<label for="bank">Toilette et lavabo seulement:</label>
+										<input type="number" class="form-control input-step-2" id="bank" name="bank"
+											   min="0">
+
+									</div>
+									<div class="form-holder">
+										<label for="branch">Toilette et baignoire/douche:</label>
+										<input type="number" class="form-control input-step-2" id="branch"
+											   name="branch" min="0">
+									</div>
+
+									<div class="form-holder">
+										<label for="branch">Sous-sol:</label>
+										<br>
+										<input type="text" class="form-control input-step-2" id="branch"
+											   name="branch">
+									</div>
+								</div>
+								<div class="form-row">
+									<div id="radio">
+										<label for="buanderie">Buanderie:</label>
+										<input type="radio" name="gender" value=" Indépendante ">
+										Indépendante
+										<span> &nbsp;&nbsp;&nbsp;--ou--&nbsp;&nbsp;&nbsp; </span>
+										<input type="radio" name="gender" value="  Jumelée à salle de toilette">
+										Jumelée à salle de toilette
+
+									</div>
+								</div>
+							</fieldset>
+							<br>
+							<fieldset>
+								<legend>Autres pièces</legend>
+								<!-- Salle a manger (checkbox)-->
+								<div class="form-row">
+									<div id="radio">
+										<div class="tablerow">
+											<div id="radio2" class="tablecell head">
+												<label for="SalleManger">Salle à manger:</label>
+												<br><br>
+											</div>
+											<div class="tablecell">
+												<input id="M_Separe" onchange="checkSalon(id,this)" type="checkbox"
+													   name="SalleManger" value=" Indépendante "> Séparée</input>
+												<br><br>
+											</div>
+											<div class="tablecell2">
+												<input id="M_JumeleC" onchange="checkSalon(id,this)" type="checkbox"
+													   name="SalleManger" value="  Jumelée à la cuisine"> Jumelée à
+												la
+												cuisine</input>
+												<br><br>
+											</div>
+											<div class="tablecell2">
+												<input id="M_JumeleS" onchange="checkSalon(id,this)" type="checkbox"
+													   name="SalleManger" value="  Jumelée au salon"> Jumelée au
+												salon</input>
+												<br><br>
+											</div>
+										</div>
+
+									</div>
+								</div>
+
+								<!-- Salon (check box)-->
+								<div class="form-row">
+									<div id="radio">
+										<div class="tablerow">
+											<div id="radio2" class="tablecell head">
+												<label for="salon">Salon / séjour:</label>
+												<br><br>
+											</div>
+											<div class="tablecell">
+												<input id="S_Separe" onchange="checkSalon(id,this)" type="checkbox"
+													   name="salon" value=" Séparé "> Séparé</input>
+												<br><br>
+											</div>
+											<div class="tablecell2">
+												<input id="S_JumeleC" onchange="checkSalon(id,this)" type="checkbox"
+													   name="salon" value="  Jumelée à la cuisine"> Jumelée à
+												la
+												cuisine</input>
+												<br><br>
+											</div>
+											<div class="tablecell2">
+												<input id="S_JumeleS" onchange="checkSalon(id,this)" type="checkbox"
+													   name="salon" value="  Jumelée au salon"> Jumelé à la
+												salle à manger</input>
+											</div>
+										</div>
+
+
+
+									</div>
+								</div>
+
+
+
+								<!-- Bureau -->
+								<div class="form-row">
+									<div id="radio">
+										<div class="tablerow">
+											<div id="radio2" class="tablecell head">
+												<label for="email">Espace de bureau:</label>
+
+											</div>
+											<div class="tablecell">
+												<input type="radio" name="gender" value=" Oui " checked> Oui
+
+											</div>
+											<div class="tablecell">
+												<input type="radio" name="gender" value="  Non"> Non
+
+											</div>
+											<div class="tablecell">
+
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</fieldset>
+
+							<br>
+							<!-- Sous-sol (seprarer en 2) -->
+							<fieldset>
+								<legend>Sous-sol
+								</legend>
+								<div class="">
+
+									<div class="tablerow">
+										<div id="radio2" class="tablecell head">
+											<label for="email">Etat:</label>
+
+										</div>
+										<div class="tablecell">
+											<input type="radio" name="gender1" value=" Oui"> Fini
+
+										</div>
+										<div class="tablecell">
+											<input type="radio" name="gender1" value=" Non"> Non Fini
+
+										</div>
+										<div class="tablecell">
+
+										</div>
+									</div>
+
+									<br>
+									<div class="tablerow">
+										<div id="radio2" class="tablecell head">
+											<label for="email">Aménagements:</label> <br><br>
+										</div>
+										<div class="tablecell">
+											<input type="checkbox" name="gender1" value=" Rangement"> Rangement
+											</input><br><br>
+										</div>
+										<div class="tablecell">
+											<input type="checkbox" name="gender" value=" Salle de jeu (enfants)">
+											Salle
+											de jeu &nbsp;&nbsp;&nbsp;&nbsp;(enfants)</input>
+										</div>
+										<div class="tablecell">
+											<input type="checkbox" name="gender" value=" Salle familiale"> Salle
+											familiale</input><br><br>
+										</div>
+									</div>
+
+
+								</div>
+							</fieldset>
+							<br>
+							<!-- Rangement (radio)-->
+							<fieldset>
+								<legend>Rangement suffisant
+								</legend>
+
+								<div class="form-row">
+									<div id="radio">
+										<div class="tablerow">
+											<div id="radio2" class="tablecell head">
+												<label for="email">Sous-sol:</label>
+											</div>
+											<div class="tablecell">
+												<input type="radio" name="gender1" value=" Oui"> Oui
+
+											</div>
+											<div class="tablecell">
+												<input type="radio" name="gender1" value=" Non"> Non
+
+											</div>
+											<div class="tablecell">
+
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="form-row">
+									<div id="radio">
+										<div class="tablerow">
+											<div id="radio2" class="tablecell head">
+												<label for="email">Rez-de-chaussée: </label>
+
+											</div>
+											<div class="tablecell">
+												<input type="radio" name="gender1" value=" Oui"> Oui
+
+											</div>
+											<div class="tablecell">
+												<input type="radio" name="gender1" value=" Non"> Non
+
+											</div>
+											<div class="tablecell">
+
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="form-row">
+									<div id="radio">
+										<div class="tablerow">
+											<div id="radio2" class="tablecell head">
+												<label for="email">Cuisine:</label>
+											</div>
+											<div class="tablecell">
+												<input type="radio" name="gender1" value=" Oui"> Oui
+
+											</div>
+											<div class="tablecell">
+												<input type="radio" name="gender1" value=" Non"> Non
+
+											</div>
+											<div class="tablecell">
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="form-row">
+									<div id="radio">
+										<div class="tablerow">
+											<div id="radio2" class="tablecell head">
+												<label for="email">1er étage: </label>
+
+											</div>
+											<div class="tablecell">
+												<input type="radio" name="gender1" value=" Oui"> Oui
+
+											</div>
+											<div class="tablecell">
+												<input type="radio" name="gender1" value=" Non"> Non
+
+											</div>
+											<div class="tablecell">
+
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="form-row">
+									<div id="radio">
+										<div class="tablerow">
+											<div id="radio2" class="tablecell head">
+												<label for="email">2e étage:</label>
+											</div>
+											<div class="tablecell">
+												<input type="radio" name="gender1" value=" Oui"> Oui
+
+											</div>
+											<div class="tablecell">
+												<input type="radio" name="gender1" value=" Non"> Non
+
+											</div>
+											<div class="tablecell">
+
+											</div>
+										</div>
+									</div>
+								</div>
+
+
+							</fieldset>
+
+							<br>
+
+							<!-- Indice Isolation -->
+							<fieldset>
+								<legend>Indice d’isolation thermique (R)</legend>
+								<div class="form-row">
+									<div class="form-holder">
+										<label for="bank">Sous-sol:</label>
+										<input type="number" placeholder="9,2" class="form-control input-step-2"
+											   id="bank" name="bank" min="0">
+									</div>
+									<div class="form-holder">
+										<label for="branch">Murs:</label>
+										<input type="number" placeholder="9,2" class="form-control input-step-2"
+											   id="branch" name="branch" min="0">
+									</div>
+
+									<div class="form-holder">
+										<label for="branch">Plafonds:</label>
+										<input type="number" placeholder="9,2" class="form-control input-step-2"
+											   id="branch" name="branch" min="0">
+									</div>
+								</div>
+							</fieldset>
+							<br>
+							<!-- Type Chauffage -->
+							<fieldset>
+								<legend>Système de Chauffage/Climatisation</legend>
+								<div class="form-row">
+									<div id="radio">
+										<div class="tablerow">
+											<div id="radio2" class="tablecell head">
+												<label for="bank">Type de chauffage:</label>
+											</div>
+											<div class="tablecell">
+												<input type="radio" name="gender" value="gaz">Gaz
+
+											</div>
+											<div class="tablecell">
+												<input type="radio" name="gender" value="Électrique">
+												Électrique
+
+											</div>
+											<div class="tablecell">
+												<input type="radio" name="gender" value="Mazout">Mazout
+
+											</div>
+										</div>
+										<div class="tablerow">
+											<div id="" class="tablecell ">
+											</div>
+											<div class="tablecell">
+												<input type="radio" name="gender" value="Bois" checked> Bois
+
+											</div>
+											<div class="tablecell">
+												<input type="radio" name="gender" value="Granules"> Granules
+
+											</div>
+											<div class="tablecell">
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<br>
+								<!-- Fournaise -->
+
+								<div id="radio">
+									<div class="tablerow">
+										<div id="radio2" class="tablecell head">
+											<label for="email">Fournaise:</label>
+										</div>
+										<div class="tablecell">
+											<input type="radio" name="gender" value="loué">Louée
+
+										</div>
+										<div class="tablecell">
+											<input type="radio" name="gender" value="Achetéé">Achetée
+
+										</div>
+										<div class="tablecell">
+										</div>
+									</div>
+								</div>
+
+								<br>
+								<!-- Ventilation -->
+
+								<div id="radio">
+									<div class="tablerow">
+										<div id="radio2" class="tablecell head">
+											<label for="email">Ventilateur-récupérateur de chaleur:</label>
+										</div>
+										<div class="tablecell">
+											<input type="radio" name="gender" value="oui">Oui
+
+										</div>
+										<div class="tablecell">
+											<input type="radio" name="gender" value="non">Non
+
+										</div>
+										<div class="tablecell">
+
+										</div>
+									</div>
+								</div>
+
+								<br>
+								<!-- Climatisation -->
+
+								<div id="radio">
+									<div class="tablerow">
+										<div id="radio2" class="tablecell head">
+											<label for="email">Climatisation:</label>
+										</div>
+										<div class="tablecell">
+											<input type="radio" name="gender" value=" Système central">Système
+											central
+										</div>
+										<div class="tablecell">
+											<input type="radio" name="gender" value="Fenêtre">Fenêtre
+
+										</div>
+										<div class="tablecell">
+											<input type="radio" name="gender" value="Aucune">Aucune
+
+										</div>
+									</div>
+								</div>
+								<br>
+
+								<!-- Foyer -->
+
+								<div id="radio">
+									<div class="tablerow">
+										<div id="radio2" class="tablecell head">
+											<label for="email">Foyer:</label>
+										</div>
+										<div class="tablecell">
+											<input type="radio" name="gender" value=" Bois ">Bois
+
+										</div>
+										<div class="tablecell">
+											<input type="radio" name="gender" value="  Gaz">Gaz
+
+										</div>
+										<div class="tablecell">
+											<input type="radio" name="gender" value="  Aucun">Aucun
+
+										</div>
+									</div>
+								</div>
+
+								<br>
+								<!-- Poele -->
+								<div id="radio">
+									<div class="tablerow">
+										<div id="radio2" class="tablecell head">
+											<label for="email">Poêle:</label>
+										</div>
+										<div class="tablecell">
+											<input type="radio" name="gender" value=" Bois ">Bois
+
+										</div>
+										<div class="tablecell">
+											<input type="radio" name="gender" value="  Granules">Granules
+
+										</div>
+										<div class="tablecell">
+											<input type="radio" name="gender" value="  Aucun">Aucun
+
+										</div>
+									</div>
+								</div>
+								<br>
+							</fieldset>
+
+
+							<br>
+							<!-- Chauffe Eau -->
+							<fieldset>
+								<legend>Chauffe-eau</legend>
+
+								<div id="radio">
+									<div class="tablerow">
+										<div id="" class="tablecell head">
+											<label for="Carburant">Carburant:</label>
+										</div>
+										<div class="tablecell">
+											<input type="radio" name="Carburant" value="gaz">Gaz
+										</div>
+										<div class="tablecell">
+											<input type="radio" name="Carburant" value="Électrique">Électrique
+										</div>
+										<div class="tablecell">
+											<input type="radio" name="Carburant" value="Mazout">Mazout
+										</div>
+									</div>
+								</div>
+								<br>
+
+								<div id="radio">
+									<div class="tablerow">
+										<div id="" class="tablecell head">
+											<label for="Propriété">Propriété:</label>
+										</div>
+										<div class="tablecell">
+											<input type="radio" name="Propriété" value="Loué">Loué
+										</div>
+										<div class="tablecell">
+											<input type="radio" name="Propriété" value="Acheté">Acheté
+										</div>
+										<div class="tablecell">
+										</div>
+									</div>
+								</div>
+								<br>
+							</fieldset>
+							<br>
+
+							<!-- Systeme electrique -->
+							<fieldset>
+								<legend>Système électrique</legend>
+
+								<div id="radio">
+									<div class="tablerow">
+										<div id="" class="tablecell head">
+											<label for="Amperage">Amperage:</label>
+										</div>
+										<div class="tablecell">
+											<input type="radio" name="Amperage" value="gaz">100 ampères
+										</div>
+										<div class="tablecell">
+											<input type="radio" name="Amperage" value="Électrique">200 ampères
+										</div>
+										<div class="tablecell">
+										</div>
+									</div>
+								</div>
+								<br>
+								<div id="radio">
+									<div class="tablerow">
+										<div id="" class="tablecell head">
+											<label for="Type">Type:</label><br><br>
+										</div>
+										<div class="tablecell">
+											<input onclick="checkElec(value)" type="radio" name="Type"
+												   value="Disjoncteurs">Disjoncteurs</input><br><br>
+										</div>
+										<div class="tablecell">
+											<input onclick="checkElec(value)" type="radio" name="Type"
+												   value="Fusibles">Fusibles</input><br><br>
+										</div>
+										<div class="tablecell">
+
+											<input onclick="checkElec(value)" type="radio" name="Type"
+												   value="Autre">Autre:
+											<div class="form-holder form-holder-2">
+												<input id="Electric_Type" type="text"
+													   class="form-control input-step-2" name="branch" disabled>
+											</div>
+
+										</div>
+									</div>
+								</div>
+
+								<br>
+
+							</fieldset>
+							<br>
+							<!-- Dispositifs Securite -->
+							<fieldset>
+								<legend>Dispositifs de sécurité</legend>
+								<div class="tablerow">
+									<div id="" class="tablecell head">
+									</div>
+									<div class="tablecell">
+										<input type="checkbox" name="gender" value=" Alarmes"> Alarmes
+
+									</div>
+									<div class="tablecell">
+									</div>
+									<div class="tablecell">
+
+
+									</div>
+								</div>
+								<br>
+								<div class="tablerow">
+									<div id="" class="tablecell head">
+									</div>
+									<div class="tablecell2">
+										<input type="checkbox" name="gender" value=" Détecteurs de fumée">
+										Détecteurs de fumée
+									</div>
+									<div class="tablecell">
+									</div>
+									<div class="tablecell">
+
+
+									</div>
+								</div>
+								<br>
+								<div class="tablerow">
+									<div id="" class="tablecell head">
+									</div>
+									<div class="tablecell">
+										<input type="checkbox" name="gender" value="Extincteurs"> Extincteurs
+
+									</div>
+									<div class="tablecell">
+									</div>
+									<div class="tablecell">
+
+
+									</div>
+								</div>
+							</fieldset>
+
+							<br>
+
+
+						</div>
+					</section>
+
+					<!-- SECTION 4 -->
+					<h2>
+						<span class="step-icon"><i class="zmdi zmdi-check"></i></span>
+						<span class="step-text">Autres </span>
+					</h2>
+					<section class="new">
+						<div class="inner">
+							<fieldset>
+								<legend>Proximité</legend>
+								<div class="form-row">
+									<div class="form-holder">
+										<label for="bank">Travail:</label>
+										<input type="number" placeholder="" class="form-control input-step-2"
+											   id="bank" name="bank" min="0"><span class="unite"
+																				   title="Kilometre">km</span>
+									</div>
+
+									<div class="form-holder">
+										<label for="bank">Travail du conjoint:</label>
+										<input type="number" placeholder="" class="form-control input-step-2"
+											   id="bank" name="bank" min="0"><span class="unite"
+																				   title="Kilometre">km</span>
+									</div>
+
+
+								</div>
+								<br><br>
+								<div class="form-row">
+									<div class="form-holder">
+										<label for="branch">Hôpital:</label>
+										<input type="number" placeholder="" class="form-control input-step-2"
+											   id="branch" name="branch" min="0"><span class="unite"
+																					   title="Kilometre">km</span>
+									</div>
+									<div class="form-holder">
+										<label for="branch">Service de police :</label>
+										<input type="number" placeholder="" class="form-control input-step-2"
+											   id="branch" name="branch" min="0"><span class="unite"
+																					   title="Kilometre">km</span>
+									</div>
+									<div class="form-holder">
+										<label for="branch">Service d’incendie:</label>
+										<input type="number" placeholder="" class="form-control input-step-2"
+											   id="branch" name="branch" min="0"><span class="unite"
+																					   title="Kilometre">km</span>
+									</div>
+
+								</div>
+								<br>
+								<div class="form-row">
+
+									<div class="form-holder">
+										<label for="branch">Dentiste:</label><span class="unite"
+																				   title="Kilometre">km</span>
+										<input type="number" placeholder="" class="form-control input-step-2"
+											   id="branch" name="branch" min="0"><span class="unite"
+																					   title="Kilometre">km</span>
+									</div>
+
+									<div class="form-holder">
+										<label for="branch">Médecin:</label>
+										<input type="number" placeholder="" class="form-control input-step-2"
+											   id="branch" name="branch"><span class="unite"
+																			   title="Kilometre">km</span>
+									</div>
+									<div class="form-holder">
+										<label for="branch">Vétérinaire:</label>
+										<input type="number" placeholder="" class="form-control input-step-2"
+											   id="branch" name="branch" min="0"><span class="unite"
+																					   title="Kilometre">km</span>
+									</div>
+
+
+
+
+
+								</div>
+								<br><br>
+								<div class="form-row">
+									<div class="form-holder">
+										<label for="bank">Écoles:</label>
+										<input type="number" placeholder="" class="form-control input-step-2"
+											   id="bank" name="bank" min="0">
+										<span class="unite" title="Kilometre">km</span>
+									</div>
+									<div class="form-holder">
+										<label for="branch">Centres récréatifs:</label>
+										<input type="number" placeholder="" class="form-control input-step-2"
+											   id="branch" name="branch" min="0"><span class="unite"
+																					   title="Kilometre">km</span>
+									</div>
+
+									<div class="form-holder">
+										<label for="bank">Transport en commun:</label>
+										<input type="number" placeholder="" class="form-control input-step-2"
+											   id="bank" name="bank" min="0"><span class="unite"
+																				   title="Kilometre">km</span>
+
+									</div>
+
+								</div>
+								<br><br>
+								<div class="form-row">
+									<div class="form-holder">
+										<label for="bank">Épiceries:</label>
+										<input type="number" placeholder="" class="form-control input-step-2"
+											   id="bank" name="bank" min="0">
+										<span class="unite" title="Kilometre">km</span>
+									</div>
+
+									<div class="form-holder">
+										<label for="branch">Centres commerciaux:</label>
+										<input type="number" placeholder="" class="form-control input-step-2"
+											   id="branch" name="branch" min="0"><span class="unite"
+																					   title="Kilometre">km</span>
+									</div>
+
+									<div class="form-holder">
+										<label for="branch">Lieux de culte:</label><span class="unite"
+																						 title="Kilometre">km</span>
+										<input type="number" placeholder="" class="form-control input-step-2"
+											   id="branch" name="branch" min="0">
+									</div>
+
+
+								</div>
+							</fieldset>
+							<br>
+							<div class="form-row">
+								<div class="form-holder form-holder-2">
+									<label for="email">Date d’occupation :</label>
+									<input type="date" name="" class="" id="" placeholder="" pattern="">
+								</div>
+							</div>
+
+
+
+							<fieldset>
+								<legend>Inclus dans la vente
+								</legend>
+
+								<div id="radio10">
+									<div class="tablerow">
+										<div class="tablecell head">
+										</div>
+										<div class="tablecell">
+											<input type="checkbox" name="gender1" value=" Oui">Stores
+
+										</div>
+										<div class="tablecell"></div>
+										<div class="tablecell"></div>
+									</div>
+									<div class="tablerow">
+										<div class="tablecell head"></div>
+										<div class="tablecell">
+											<input type="checkbox" name="gender1" value=" Non">Luminaires
+										</div>
+										<div class="tablecell"></div>
+										<div class="tablecell"></div>
+									</div>
+									<div class="tablerow">
+										<div class="tablecell head"></div>
+										<div class="tablecell">
+											<input type="checkbox" name="gender1" value=" Non">Équipements
+
+										</div>
+										<div class="tablecell"></div>
+										<div class="tablecell"></div>
+									</div>
+									<div class="tablerow">
+										<div class="tablecell head"></div>
+										<div class="tablecell">
+											<input type="checkbox" name="gender1" value=" Non">Entretien extérieur
+										</div>
+										<div class="tablecell"></div>
+										<div class="tablecell"></div>
+									</div>
+									<div class="tablerow">
+										<div class="tablecell head"></div>
+										<div class="tablecell">
+											<input id="" type="checkbox" name="VenteAutre" value="Autre"
+												   onclick="checkVente(this)">Autre
+											<div class="form-holder form-holder-2">
+												<input type="text" id="VenteAutre"
+													   class="form-control input-step-2-2" name="VenteAutre" disabled>
+											</div>
+										</div>
+										<div class="tablecell"></div>
+										<div class="tablecell"></div>
+									</div>
+								</div>
+
+
+							</fieldset>
+
+						</div>
+					</section>
+					<!-- SECTION 5 -->
+					<h2>
+						<span class="step-icon"><i class="zmdi zmdi-check"></i></span>
+						<span class="step-text">Détails</span>
+					</h2>
+					<section class="old">
+						<div class="inner">
+							<h3>Comfirmer Détails Importants</h3>
+							<div class="form-row table-responsive">
+								<table class="table">
+									<tbody>
+									<tr class="space-row">
+										<th>Courtier:</th>
+										<td id="vendeur-val"></td>
+									</tr>
+									<tr class="space-row">
+										<th>Téléphone:</th>
+										<td id="tel-val"></td>
+									</tr>
+									<tr class="space-row">
+										<th>Célulaire:</th>
+										<td id="cel-val"></td>
+									</tr>
+									<tr class="space-row">
+										<th>Courriel:</th>
+										<td id="courriel-val"></td>
+									</tr>
+									<tr class="space-row">
+										<th>Adresse:</th>
+										<td id="adresse-val"></td>
+									</tr>
+									<tr class="space-row">
+										<th>Type d’habitation:</th>
+										<td id="TypeHab-val"></td>
+									</tr>
+									<tr class="space-row">
+										<th>Prix demandé:</th>
+										<td id="prix-val"></td>
+									</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</section>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/jquery.steps.js"></script>
+<script src="js/main.js"></script>
+</body>
+
+</html>
